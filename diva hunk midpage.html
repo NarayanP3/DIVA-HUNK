@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Diva Hunk</title>
+</head>
+
+<body>
+    <div class="vote_page">
+        <div class="switch_option">
+            <span class="alcher_divas tab active" onclick="switchTab('divas', 'divas_vote', this)">ALCHER DIVAS</span>
+            <span class="alcher_hunks tab" onclick="switchTab('hunks', 'hunk_vote', this)">ALCHER HUNKS</span>
+        </div>
+        <div class="vote_text">
+            <p class="divas_vote text_vote active">Vote for your favourite DIVAS from below.</p>
+            <p class="hunk_vote text_vote">Vote for your favourite HUNKS from below.</p>
+        </div>
+        <div class="participants">
+            <div class="divas active">
+                <div class="img_container">
+                    <img src="image 272.png" alt="Description of the image" class="img_of_participant">
+                    <div class="voting">
+                        <p class="name_of_participant">SID</p>
+                        <img src="image_vote.png" alt="Description of the image" class="img_of_vote" onclick="toggleimagesize(this)">
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="image 270.png" alt="Description of the image" class="img_of_participant">
+                    <div class="voting">
+                        <p class="name_of_participant">SID</p>
+                        <img src="image_vote.png" alt="Description of the image" class="img_of_vote" onclick="toggleimagesize(this)">
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="image 270.png" alt="Description of the image" class="img_of_participant">
+                    <div class="voting">
+                        <p class="name_of_participant">SID</p>
+                        <img src="image_vote.png" alt="Description of the image" class="img_of_vote" onclick="toggleimagesize(this)">
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="image276.png" alt="Description of the image" class="img_of_participant">
+                    <div class="voting">
+                        <p class="name_of_participant">SID</p>
+                        <img src="image_vote.png" alt="Description of the image" class="img_of_vote" onclick="toggleimagesize(this)">
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="image276.png" alt="Description of the image" class="img_of_participant">
+                    <div class="voting">
+                        <p class="name_of_participant">SID</p>
+                        <img src="image_vote.png" alt="Description of the image" class="img_of_vote" onclick="toggleimagesize(this)">
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="image276.png" alt="Description of the image" class="img_of_participant">
+                    <div class="voting">
+                        <p class="name_of_participant">SID</p>
+                        <img src="image_vote.png" alt="Description of the image" class="img_of_vote" onclick="toggleimagesize(this)">
+                    </div>
+                </div>
+            </div>
+            <div class="hunks">
+                <div class="img_container">
+                    <img src="image 273.png" alt="Description of the image" class="img_of_participant">
+                    <div class="voting">
+                        <p class="name_of_participant">SID</p>
+                        <img src="image_vote.png" alt="Description of the image" class="img_of_vote" onclick="toggleimagesize(this)">
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="image 275.png" alt="Description of the image" class="img_of_participant">
+                    <div class="voting">
+                        <p class="name_of_participant">SID</p>
+                        <img src="image_vote.png" alt="Description of the image" class="img_of_vote" onclick="toggleimagesize(this)">
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="image276.png" alt="Description of the image" class="img_of_participant">
+                    <div class="voting">
+                        <p class="name_of_participant">SID</p>
+                        <img src="image_vote.png" alt="Description of the image" class="img_of_vote" onclick="toggleimagesize(this)">
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="image276.png" alt="Description of the image" class="img_of_participant">
+                    <div class="voting">
+                        <p class="name_of_participant">SID</p>
+                        <img src="image_vote.png" alt="Description of the image" class="img_of_vote" onclick="toggleimagesize(this)">
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="image276.png" alt="Description of the image" class="img_of_participant">
+                    <div class="voting">
+                        <p class="name_of_participant">SID</p>
+                        <img src="image_vote.png" alt="Description of the image" class="img_of_vote" onclick="toggleimagesize(this)">
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="image276.png" alt="Description of the image" class="img_of_participant">
+                    <div class="voting">
+                        <p class="name_of_participant">SID</p>
+                        <img src="image_vote.png" alt="Description of the image" class="img_of_vote" onclick="toggleimagesize(this)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- tabswitch -->
+    <script>
+        function switchTab(tab,tab2,clickedTab) {
+            document.querySelectorAll('.participants > div, .text_vote').forEach(container => {
+                container.classList.remove('active');
+            });
+
+            document.querySelector(`.${tab}`).classList.add('active');
+            document.querySelector(`.${tab2}`).classList.add('active');
+
+            document.querySelectorAll('.tab').forEach(tabElement => {
+                tabElement.classList.remove('active');
+            });
+
+            clickedTab.classList.add('active');
+        }
+    </script>
+
+    <!-- toggleimagesize -->
+    <script>
+        function toggleimagesize(image){
+            if(image.style.width == '15vw'){
+                image.style.width = '12vw';
+            } else{
+                image.style.width = '15vw';
+            }
+
+            setTimeout(() => {
+                if (image.style.width === '12vw') {
+                    image.style.width = '15vw';
+                } else {
+                    image.style.width = '15vw';
+                }
+            }, 1000);
+        }
+    </script>
+    
+
+</body>
+
+</html>
