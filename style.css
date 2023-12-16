@@ -85,15 +85,51 @@ body{
 .voting{
     position: absolute;
     text-align: center;
-    top: 65%;
+    top: 64%;
 }
 
-.img_of_vote{
-    width: 15vw;
-    height: auto;
+.vote_button{
+    /* width: 15vw; */
+    /* height: auto; */
     cursor: pointer;
+    background-color: #91B6FF;
+    padding: 0.3vw 3vw 0.3vw 3vw;
+    border:  0.2vw solid black;
+    border-radius: 30px;
 }
 
 .name_of_participant{
     font-size: 1.5vw;
+    font-family: "FONTSPRING DEMO - Freigeist Con Black", sans-serif;
+    font-weight: 800;
+}
+
+.vote{
+    font-size: 2.5vw;
+    font-weight: 850;
+    font-family: "FONTSPRING DEMO - Freigeist Con Black", sans-serif;
+}
+
+.img_of_heart{
+    width: 2.1vw;
+    height: auto;
+    padding-left: 0.5vw;
+}
+
+@media screen and (max-width: 375px) {
+    .vote{
+        font-size: 3vw;
+    }
+
+    .img_of_heart{
+        width: 2.3vw;
+    }
+
+    /* .vote_button{
+        margin-top: -1vh;
+    } */
+
+    .name_of_participant{
+        margin-top: -0.3vh;
+    }
 }
