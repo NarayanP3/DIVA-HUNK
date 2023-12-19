@@ -1,0 +1,198 @@
+@font-face {
+    font-family: 'ConBlack';
+    src: url("fonts/ConBlack.otf") format('truetype');
+}
+@font-face {
+    font-family: 'Uncut';
+    src: url("fonts/Uncut-Sans-VF.ttf") format('truetype');
+}
+body{
+    background-color: #222222;
+}
+.headerShape{
+    z-index:-1;
+    margin-left:-2vw; margin-top:-2vw;
+    height:38.09vh;
+}
+.register{
+    height:fit-content;
+    padding:1vh 4vh 4vh 8vh;
+    margin-top: -20%;
+}
+.header{
+    display: flex;
+    justify-content: flex-start;
+    font-family: 'ConBlack';
+    gap:2vw;
+    font-size:2.5vw;
+    line-height:3.5vw;
+    color:#F1F1F1;
+    padding-top:2vh; padding-bottom:6vh;
+}
+.header img{
+    height: 4.5vh;
+}
+.registerPage{
+    display: flex;
+    justify-content: flex-start;
+    margin-left:2vw;
+    gap: 2.5vw;
+}
+.registerImages{
+    display:flex;
+}
+.image1{z-index:2; height:70vh;}
+.imageStar{
+    z-index:3;
+    margin-top:2vw;
+    margin-left:-26vw;
+    height:60vh;
+}
+
+.image2{
+    z-index:1;
+    margin-left:-25.75vw;
+    height:70vh;
+}
+.image3{
+    z-index:0;
+    margin-left:-31.75vw;
+    height:70vh;
+}
+.registerMain{
+    margin-top:-2vw;
+    color:#F1F1F1;
+}
+.formHead{
+    display:flex;
+    gap:25vw;
+}
+.heading{
+    font-size:2.08vw;
+    font-family: 'ConBlack';
+}
+.shareProfile{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:1vw;
+    background-color:#91B6FF;
+    color:#1E1E1E;
+    font-family: 'ConBlack';
+    height:4vh; width:12vw;
+    font-size: 2vh;
+    font-weight:850;
+}
+.shareProfile img{
+    height:1vw;
+}
+.participant{
+    margin-top:-2vw;
+    font-size:4.8vw;
+    font-family: 'ConBlack';
+}
+.formNote{
+    margin-top:-3vw;
+    font-size:1.04vw;
+    width: 45vw;
+    font-family:'Uncut';
+}
+form{
+    font-family:'Uncut';
+}
+.input input[type=text],input[type=number]{
+    width: 100%;
+  margin-top: 3.2vh;
+  padding-bottom: 0.5vw;
+  display: inline-block;
+  border: none;
+  color: #F1F1F1;
+  background-color: #222222;
+  outline: none;
+}
+.enterName, .emailID{
+    border-bottom: 0.8px  solid;
+    width: 60%;
+    color: #F1F1F1;
+    font-weight: 400;
+}
+
+.phone{
+    display: flex;
+    border-bottom: 0.8px  solid #F1F1F1;
+    width: 60%;
+    font-weight: 400;
+}
+
+.option{ 
+    margin-top: 3vh;
+    display: inline;
+    border: none;
+    font-family: 'Uncut';
+}
+
+#dropdown{
+    background-color: #222222;
+    border: none;
+}
+button{
+    border:none;
+    border-radius:10%;
+    cursor:pointer;
+}
+
+
+select{
+    background-color:#222222;
+    color:#737373;
+    outline:none;
+    border:none;
+}
+.OTPSend{
+    background-color:#91B6FF;
+    color:#1E1E1E;
+    font-family: 'ConBlack';
+    height:4vh; width:7vw;
+    font-size: 2vh;
+    font-weight:850;
+    margin-bottom: 3vh;
+}
+.OTPHead{
+    font-weight: 600;
+}
+.OTPCollect {
+    display: flex; 
+    justify-content: flex-start;
+    padding-bottom: 3vw;
+}
+.inputs{
+    display:flex;
+    gap: 0.8vw;
+}
+  
+.OTP { 
+    width: 2vw; 
+    background-color: #222222;
+    border: none; 
+    border-bottom: 1px solid #737373;
+    text-align: center; 
+    color:#F1F1F1;
+} 
+  
+.OTP:focus { 
+    outline: none; 
+} 
+
+.submit{
+    background-color:#91B6FF;
+    color:#1E1E1E;
+    font-family: 'ConBlack';
+    height:4vh; width:12vw;
+    font-size: 2vh;
+    font-weight:850;
+}
+
+.fade-in-out{
+    opacity:0;
+    transition: opacity 2s ease-in-out;
+}
