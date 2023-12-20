@@ -11,13 +11,14 @@ body{
 }
 .headerShape{
     z-index:-1;
-    margin-left:-2vw; margin-top:-2vw;
-    height:38.09vh;
+    margin-left:-2%; margin-top:-2%;
+    height:50vh;
 }
 .register{
     height:fit-content;
+    position:fixed;
     padding:1vh 4vh 4vh 8vh;
-    margin-top: -20%;
+    top: 2.5%; left:1%;
 }
 .header{
     display: flex;
@@ -27,45 +28,51 @@ body{
     font-size:2.5vw;
     line-height:3.5vw;
     color:#F1F1F1;
-    padding-top:2vh; padding-bottom:6vh;
+    padding-top:1.5%; padding-bottom:8%;
 }
 .header img{
     height: 4.5vh;
 }
 .registerPage{
-    display: flex;
-    justify-content: flex-start;
+    display: flex; position:relative;
     margin-left:2vw;
-    gap: 2.5vw;
+    gap:90%;
 }
 .registerImages{
     display:flex;
+    position:relative;
 }
-.image1{z-index:2; height:70vh;}
+.registerImages img{
+    position:absolute;
+}
+.image1{z-index:2;}
 .imageStar{
     z-index:3;
     margin-top:2vw;
-    margin-left:-26vw;
+    left:5vw;
     height:60vh;
 }
-
 .image2{
     z-index:1;
-    margin-left:-25.75vw;
-    height:70vh;
 }
 .image3{
     z-index:0;
-    margin-left:-31.75vw;
-    height:70vh;
 }
+.fade-in-out{
+    opacity:0;
+    transition: opacity 2s ease-in-out;
+    position: relative;
+    height:100%;
+}
+
+
 .registerMain{
     margin-top:-2vw;
     color:#F1F1F1;
 }
 .formHead{
     display:flex;
-    gap:25vw;
+    gap:20vw;
 }
 .heading{
     font-size:2.08vw;
@@ -192,7 +199,20 @@ select{
     font-weight:850;
 }
 
-.fade-in-out{
-    opacity:0;
-    transition: opacity 2s ease-in-out;
+@media(max-width: 768px){
+
+    .registerPage{
+        left:-4vw;
+        gap:105%;
+    }
+    .shareProfile{
+        gap:1vw;
+        height:3vh;
+        font-size: 1.5vh;
+    }
+
+
+    .submit, .OTPSend{
+        font-size: 1.5vh;
+    }
 }
