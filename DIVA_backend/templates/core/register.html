@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="register.css">
+  <title>Voting Page</title>
+</head>
+
+<body>
+    <img src = "images/headerShape.png" class = "headerShape">
+    <div class = "register">
+        <div class = "header">
+            <div><img src = "images/alcherLogo.png"></div>
+            <div>ALCHERINGA</div>
+        </div>
+        <div class = "registerPage">
+            <div class = "registerImages">
+                <img src = "images/image 1.png" class = "fade-in-out image1">
+                <img src = "images/Stars.png" class = "imageStar">
+                <img src = "images/image 2.png" class = "fade-in-out image2">
+                <img src = "images/image 3.png" class = "fade-in-out image3">
+            </div>
+            <div class = "registerMain">
+                <div class = "formHead">
+                    <p class = "heading">ALCHER DIVA</p>
+                    <button class = "shareProfile">
+                        <img src = "images/shareIcon.png">
+                        <div class = "shareContent">SHARE PROFILE</div>
+                    </button>
+                </div>
+                <p class = "participant">AKSHARA DANDA</p>
+                <br>
+                <p class = "formNote">Please enter the required information to prevent multiple votes. We will send an OTP to <thead>
+                the entered Email for verification. </p>
+                <form action="{% url 'register' %}" method="POST">  
+                    {% csrf_token %}      
+                    <div class="enterName input">
+                        <input name="Your_Name" type="text" placeholder = "Your name" required>
+                    </div>
+                    <div class="phone">
+                        <div class="option">
+                        <select id="dropdown" name="country_code">
+                            <option value="+91">+91</option>
+                            <option value="+880">+880</option>
+                        </select>
+                        </div>
+                        <div class="contactNumber input">
+                        <input name="contact_number" class="phone" type="text" placeholder="Contact No." required>
+                        </div>
+                    </div>
+                    <div class="emailID input">
+                        <input name="email_ID" type="text" placeholder = "Email ID" required>
+                    </div>
+                    <br>
+                    <button class = "OTPSend"> SEND OTP </button>
+                    <p class = "OTPHead"> OTP </p>
+                    <div class="OTPCollect"> 
+                        <div id="inputs" class="inputs"> 
+                            <input class="OTP" type="text" 
+                                inputmode="numeric" maxlength="1" oninput="moveToNextInput(this)"> 
+                            <input class="OTP" type="text" 
+                                inputmode="numeric" maxlength="1"  oninput="moveToNextInput(this)" onkeydown="moveToPreviousInput(event, this)"> 
+                            <input class="OTP" type="text" 
+                                inputmode="numeric" maxlength="1"  oninput="moveToNextInput(this)" onkeydown="moveToPreviousInput(event, this)"> 
+                            <input class="OTP" type="text" 
+                                inputmode="numeric" maxlength="1"  oninput="moveToNextInput(this)" onkeydown="moveToPreviousInput(event, this)"> 
+                            <input class="OTP" type="text" 
+                                inputmode="numeric" maxlength="1"  oninput="moveToNextInput(this)" onkeydown="moveToPreviousInput(event, this)"> 
+                            <input class="OTP" type="text" 
+                                inputmode="numeric" maxlength="1" onkeydown="moveToPreviousInput(event, this)"> 
+                        </div> 
+                    </div> 
+                    <button class = "submit"> SUBMIT MY VOTE </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src = "register.js"></script>
+
+</html>

@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'core/css/register.css'%}">
+  <title>Voting Page</title>
+</head>
+
+<body>
+    <img src = "{% static 'core/assets/headerShape.png' %}" class = "headerShape">
+    <div class = "register">
+        <div class = "header">
+            <div><img src = "{% static 'core/assets/alcherLogo.png' %}"></div>
+            <div>ALCHERINGA</div>
+        </div>
+        <div class = "registerPage">
+            <div class = "registerImages">
+                <img src = "{% static 'core/assets/image 1.png' %}" class = "fade-in-out image1">
+                <img src = "{% static 'core/assets/Stars.png' %}" class = "imageStar">
+                <img src = "{% static 'core/assets/image 2.png' %}" class = "fade-in-out image2">
+                <img src = "{% static 'core/assets/image 3.png' %}" class = "fade-in-out image3">
+            </div>
+            <div class = "registerMain">
+                <div class = "formHead">
+                    <p class = "heading">ALCHER DIVA</p>
+                    <button class = "shareProfile">
+                        <img src = "{% static 'core/assets/shareIcon.png' %}">
+                        <div class = "shareContent">SHARE PROFILE</div>
+                    </button>
+                </div>
+                <p class = "participant">AKSHARA DANDA</p>
+                <br>
+                <p class = "formNote">Please enter the required information to prevent multiple votes. We will send an OTP to <thead>
+                the entered Email for verification. </p>
+                <form method="POST" action="{% url 'register' %}"> 
+                    {% csrf_token %}   
+                    {{ form.as_p }}    
+                    <div class="enterName input">
+                        <input name="Your_Name" type="text" placeholder = "Your name">
+                    </div>
+                    <div class="phone">
+                        <div class="option">
+                        <select id="dropdown" name="country_code">
+                            <option value="+91">+91</option>
+                            <option value="+880">+880</option>
+                        </select>
+                        </div>
+                        <div class="contactNumber input">
+                        <input name="contact_number" class="phone" type="text" placeholder="Contact No.">
+                        </div>
+                    </div>
+                    <div class="emailID input">
+                        <input name="email_ID" type="text" placeholder = "Email ID">
+                    </div>
+                    <br>
+                    <button class = "OTPSend" type = "submit" name = "sendOTP"> SEND OTP </button>
+                    <p class = "OTPHead"> OTP </p>
+                    <div class="OTPCollect"> 
+                        <div id="inputs" class="inputs"> 
+                            <input name = "otp_1" class="OTP" type="text" 
+                                inputmode="numeric" maxlength="1" oninput="moveToNextInput(this)"> 
+                            <input name = "otp_2" class="OTP" type="text" 
+                                inputmode="numeric" maxlength="1"  oninput="moveToNextInput(this)" onkeydown="moveToPreviousInput(event, this)"> 
+                            <input name = "otp_3" class="OTP" type="text" 
+                                inputmode="numeric" maxlength="1"  oninput="moveToNextInput(this)" onkeydown="moveToPreviousInput(event, this)"> 
+                            <input name = "otp_4" class="OTP" type="text" 
+                                inputmode="numeric" maxlength="1"  oninput="moveToNextInput(this)" onkeydown="moveToPreviousInput(event, this)"> 
+                            <input name = "otp_5" class="OTP" type="text" 
+                                inputmode="numeric" maxlength="1"  oninput="moveToNextInput(this)" onkeydown="moveToPreviousInput(event, this)"> 
+                            <input name = "otp_6" class="OTP" type="text" 
+                                inputmode="numeric" maxlength="1" onkeydown="moveToPreviousInput(event, this)"> 
+                        </div> 
+                    </div> 
+                    <button class = "submit"> SUBMIT MY VOTE </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src = "{% static 'core/js/register.js'%}"></script>
+
+</html>
