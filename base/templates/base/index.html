@@ -1,0 +1,84 @@
+
+{% load static %}
+
+
+ {%block content%}
+    <div class="vote_page" id="vote_div">
+        <div class="switch_option">
+            <span class="alcher_divas tab active" onclick="switchTab('divas', 'divas_vote', this)">ALCHER DIVAS</span>
+            <span class="alcher_hunks tab" onclick="switchTab('hunks', 'hunk_vote', this)">ALCHER HUNKS</span>
+        </div>
+        <div class="vote_text">
+            <p class="divas_vote text_vote active">Vote for your favourite DIVAS from below.</p>
+            <p class="hunk_vote text_vote">Vote for your favourite HUNKS from below.</p>
+        </div>
+        <div class="participants">
+            <div class="divas active">
+                {% for item in divas %}
+                    <div class="img_container">
+                        <img src="{{ item.image.url }}" alt="Description of the image" class="img_of_participant">
+                        <div class="voting">
+                            <p class="name_of_participant">{{ item.name }}</p>
+                            <div onclick="window.location.href=`{% url 'diva_register' item.pk  %}`" class="vote_button">
+                                <span class="vote">VOTE</span>
+                                <img src="{%static 'images/image_heart.png'%}" alt="Description of the image" class="img_of_heart">
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="hunks">
+                {% for hunk in hunks %}
+                    <div class="img_container">
+                        <img src="{{ hunk.image.url }}" alt="Description of the image" class="img_of_participant">
+                        <div class="voting">
+                            <p class="name_of_participant">{{ hunk.name }}</p>
+                            <div onclick="window.location.href=`{% url 'hunk_register' hunk.pk%}`" class="vote_button">
+                                <span class="vote">VOTE</span>
+                                <img src="{%static 'images/image_heart.png'%}" alt="Description of the image" class="img_of_heart">
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <!-- tabswitch -->
+    <script>
+        function switchTab(tab,tab2,clickedTab) {
+            document.querySelectorAll('.participants > div, .text_vote').forEach(container => {
+                container.classList.remove('active');
+            });
+
+            document.querySelector(`.${tab}`).classList.add('active');
+            document.querySelector(`.${tab2}`).classList.add('active');
+
+            document.querySelectorAll('.tab').forEach(tabElement => {
+                tabElement.classList.remove('active');
+            });
+
+            clickedTab.classList.add('active');
+        }
+    </script>
+    {%endblock content%}
+    <!-- toggleimagesize -->
+    <!-- <script>
+        function toggleimagesize(image){
+            if(image.style.width == '15vw'){
+                image.style.width = '12vw';
+            } else{
+                image.style.width = '15vw';
+            }
+
+            setTimeout(() => {
+                if (image.style.width === '12vw') {
+                    image.style.width = '15vw';
+                } else {
+                    image.style.width = '15vw';
+                }
+            }, 1000);
+        }
+    </script> -->
+    
+

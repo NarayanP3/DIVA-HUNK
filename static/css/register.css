@@ -1,258 +1,271 @@
-@import "https://fonts.googleapis.com/css?family=Berkshire+Swash";
-@import "https://fonts.googleapis.com/css?family=Outfit";
-@import url(//db.onlinewebfonts.com/c/860c3ec7bbc5da3e97233ccecafe512e?family=Circular+Std+Book);
-
-* {
-  margin: 0%;
+@font-face {
+    font-family: 'ConBlack';
+    src: url("../fonts/ConBlack.otf") format('opentype');
 }
-@media (orientation: landscape) {
-  .largest-box{
-    position: sticky;
-    top:3rem;
-    overflow: hidden;
-    background-color: #212121;
-    /* width: 100vw; */
-    height: 100vh;  
-  }
+@font-face {
+    font-family: 'Uncut';
+    src: url("../fonts/Uncut-Sans-VF.ttf") format('truetype');
 }
-
-.form-wide {
-  box-sizing: border-box;
-  display: flex;
-  padding: 2% 5% 2% 5%;
-  justify-content: space-around;
+body{
+    background-color: #222222;
 }
-/* .registerForm {
-  margin-left: 20px;
-} */
-
-.form-mob {
-  display: none;
+.headerShape{
+    z-index:-1; position:relative;
+    margin-left:-2%; margin-top:-2%;
+    height:50vh;
 }
-
-.diva-img {
-  width: 29vw;
-  object-fit: cover;
-  /* height: 44vw; */
-  margin-top: -1%;
+.register{
+    height:fit-content;
+    position: relative;
+    padding:1vh 4vh 4vh 8vh;
+    top: -45vh; left:1%;
 }
-
-.candidate-detail {
-  margin-bottom: 2vw;
-}
-
-.heading {
-  font-family: "Berkshire Swash";
-  font-size: 1.5vw;
-}
-
-.diva-name {
-  font-family: "Outfit";
-  font-size: 1.8vw;
-  font-weight: 900;
-}
-
-.sharebtn {
-  margin-left: 5%;
-  font-size: 1.2vw;
-  font-family: "Outfit";
-  font-weight: 500;
-  width: 12vw;
-  height: 3vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1.5px solid black;
-  border-radius: 1vw;
-  background-color: #ffffff;
-}
-.sharebtn:hover{
-  cursor: pointer;
-}
-
-.share-link-img {
-  margin-left: 5%;
-  width: 2.2vw;
-}
-
-.diva-name {
-  margin-top: 1vw;
-  display: flex;
-  flex-direction: row;
-}
-
-.institute {
-  font-family: "Outfit";
-  font-size: 1.2vw;
-  font-weight: 700;
-}
-
-.instruction {
-  color: #5b5858;
-  font-family: "Outfit";
-  font-weight: 400;
-  font-size: 0.9vw;
-  margin-bottom: 2vw;
-}
-
-.label {
-  font-family: "outfit";
-  font-weight: 700;
-  font-size: 1vw;
-}
-
-.input-topic {
-  margin-bottom: 1vw;
-}
-
-.input {
-  background: rgba(250, 250, 250, 0.93);
-  box-sizing: border-box;
-  border: 1px solid #e1e1e1;
-  padding: 0 2%;
-  border-radius: 0.8vw;
-}
-
-.input1 {
-  width: 40vw;
-  height: 3vw;
-}
-
-.input2 {
-  width: 30vw;
-  height: 3vw;
-}
-
-.sendOTPbtn {
-  margin-left: 3%;
-  margin-top: 0.2%;
-  font-size: 1.1vw;
-  background-color: #ffffff;
-  width: 8vw;
-  height: 2.8vw;
-  border: 1.5px solid black;
-  border-radius: 0.8vw;
-}
-
-.otp-input {
-  display: flex;
-  align-items: center;
-}
-.otp-input input[type="text"] {
-  width: 3.5vw;
-  height: 3.5vw;
-  margin: 0 5px;
-  text-align: center;
-  font-size: 24px;
-  background: #fafafa;
-  border: 1px solid #e1e1e1;
-  border-radius: 1vw;
-}
-
-.finish-btn {
-  color: #ffffff;
-  background-color: #000000;
-  font-family: "Outfit";
-  width: 7vw;
-  height: 3vw;
-  margin-left: 7vw;
-  font-size: 1.5vw;
-  border-radius: 0.8vw;
-}
-
-.chevron-right-img {
-  width: 1vw;
-}
-
-@media (max-width: 540px) {
-  .largest-box {
-    background-color: #000000;
-    display: none;
-  }
-  .form-wide {
-    display: none;
-  }
-  .form-mob {
-    display: block;
-  }
-  #form-mob {
+.header1{
     display: flex;
-    flex-direction: column;
+    justify-content: flex-start;
+    font-family: 'ConBlack';
+    gap:2vw;
+    font-size:2.5vw;
+    line-height:3.5vw;
+    color:#F1F1F1;
+    padding-top:1.5%; padding-bottom:8%;
+}
+.header1 img{
+    height: 4.5vh;
+}
+.registerPage{
+    display: flex; position:relative;
+    margin-left:2vw;
+    gap:40%;
+}
+.voteDone{
     justify-content: center;
     align-items: center;
-  }
-  .diva-img {
-    width: 80vw;
-    /* height: 80vh; */
-    margin: 15% 0% 5% 0%;
-  }
-  .sharelinkbtn-mob {
-    position: absolute;
-    color: #000000;
-    background-color: #ffffff;
-    font-family: "Outfit";
-    top: 5%;
-    left: 60%;
-    border: 1px solid #ffffff;
-    border-radius: 1.6vw;
-    width: 22vw;
-    height: 7vw;
-  }
-  .candidate-detail {
-    margin-bottom: 0;
-    text-align: center;
-    bottom: -28%;
-  }
-  .heading {
-    font-size: 5.5vw;
-  }
-  .diva-name {
-    font-size: 4.5vw;
-  }
-  .institute {
-    font-size: 3.2vw;
-  }
-  .instruction {
-    font-size: 3.3vw;
-    width: 100vw;
-    text-align: center;
-    margin-top: 10%;
-  }
-  .label {
-    font-size: 3.6vw;
-  }
-  .input1,
-  .input2 {
-    height: 8vw;
-    width: 75vw;
-    margin-bottom: 5%;
-    border-radius: 2vw;
-  }
-  .sendOTPbtn {
-    width: 75vw;
-    height: 10vw;
-    margin-left: -0.1%;
-    font-size: 3.5vw;
-    font-weight: 700;
-    border-radius: 2vw;
-    margin-bottom: 2%;
-    border: 1px solid #000000;
-  }
-  .otp-input input[type="text"] {
-    margin-top: 3%;
-    width: 13vw;
-    height: 13vw;
-    border-radius: 3vw;
-    margin-right: 5%;
-  }
-  .finish-btn {
-    margin-left: 2%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    font-size: 5vw;
-    border-radius: 2vw;
-    height: 8vw;
-    width: 70vw;
-    border: 0.1px solid #000000;
-  }
+    gap:1vw;
+    background-color:#91B6FF;
+    color:#1E1E1E;
+    font-family: 'ConBlack';
+    height:4vh; width:65vw;
+    font-size: 3vh;
+    font-weight:850;
+}
+
+.registerImages{
+    display:flex;
+    position:relative;
+}
+.registerImages img{
+    position:absolute;
+}
+.image1{z-index:2;}
+.imageStar{
+    z-index:3;
+    margin-top:2vw;
+    left:5vw;
+    height:60vh;
+}
+.image2{
+    z-index:1;
+}
+.image3{
+    z-index:0;
+}
+.fade-in-out{
+    opacity:0;
+    transition: opacity 2s ease-in-out;
+    position: relative;
+    height:100%;
+}
+
+
+.registerMain{
+    margin-top:-2vw;
+    /* margin-left: ; */
+    color:#F1F1F1;
+}
+.formHead{
+    display:flex;
+    gap:20vw;
+}
+.heading2{
+    font-size:2.08vw;
+    font-family: 'ConBlack';
+    text-transform: uppercase;
+
+}
+.shareProfile{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:1vw;
+    background-color:#91B6FF;
+    color:#1E1E1E;
+    font-family: 'ConBlack';
+    height:4vh; width:12vw;
+    font-size: 1.5vh;
+    font-weight:850;
+}
+.shareProfile img{
+    height:1vw;
+}
+.participant{
+    margin-top:-2vw;
+    font-size:4.8vw;
+    font-family: 'ConBlack';
+}
+.formNote{
+    margin-top:-3vw;
+    font-size:1.04vw;
+    width: 45vw;
+    font-family:'Uncut';
+}
+form{
+    font-family:'Uncut';
+}
+.input input[type=text],input[type=number], input[type=email]{
+    width: 100%;
+  margin-top: 3.2vh;
+  padding-bottom: 0.5vw;
+  display: inline-block;
+  border: none;
+  color: #F1F1F1;
+  background-color: #222222;
+  outline: none;
+}
+.enterName, .emailID{
+    border-bottom: 0.8px  solid;
+    width: 60%;
+    color: #F1F1F1;
+    font-weight: 400;
+}
+
+.phone1{
+    display: flex;
+    border-bottom: 0.8px  solid #F1F1F1;
+    width: 60%;
+    font-weight: 400;
+}
+
+.option{ 
+    margin-top: 3vh;
+    display: inline;
+    border: none;
+    font-family: 'Uncut';
+}
+
+#dropdown{
+    background-color: #222222;
+    border: none;
+}
+button{
+    border:none;
+    border-radius:10%;
+    cursor:pointer;
+}
+
+
+select{
+    background-color:#222222;
+    color:#737373;
+    outline:none;
+    border:none;
+}
+.OTPSend{
+    background-color:#91B6FF;
+    color:#1E1E1E;
+    font-family: 'ConBlack';
+    height:4vh; width:7vw;
+    font-size: 2vh;
+    font-weight:850;
+    margin-bottom: 3vh;
+}
+.OTPHead{
+    font-weight: 600;
+}
+.OTPCollect {
+    display: flex; 
+    justify-content: flex-start;
+    padding-bottom: 3vw;
+}
+.inputs{
+    display:flex;
+    gap: 0.8vw;
+}
+  
+.OTP { 
+    width: 2vw; 
+    background-color: #222222;
+    border: none; 
+    border-bottom: 1px solid #737373;
+    text-align: center; 
+    color:#F1F1F1;
+} 
+  
+.OTP:focus { 
+    outline: none; 
+} 
+
+.submit{
+    background-color:#91B6FF;
+    color:#1E1E1E;
+    font-family: 'ConBlack';
+    height:4vh; width:12vw;
+    font-size: 2vh;
+    font-weight:850;
+}
+
+@media(max-width: 768px){
+
+    .registerPage{
+        left:-4vw;
+        gap:52.5%;
+    }
+    .shareProfile{
+        gap:1vw;
+        height:3vh;
+        font-size: 1vh;
+    }
+
+
+    .submit, .OTPSend{
+        font-size: 1.5vh;
+    }
+}
+
+@media(max-width:425px){
+    .registerPage{
+        flex-direction: column;
+        left:6vw;
+    }
+    .fade-in-out, .imageStar{
+        height:30vh;
+    }
+    .imageStar{
+        left:10vw; margin-top:1vw;
+    }
+    .registerMain{
+        margin-top:55vw;
+        position:relative;
+        left:2vw;
+    }
+    .shareProfile{
+        height:2vh;
+        font-size: 0.7vh;
+    }
+    .formNote{
+        font-size: 0.9vh;
+    }
+    .enterName, .phone, .emailID{
+        width:80%;
+    }
+    .OTPSend{
+        height: 3vh;
+        width:12vw;
+        margin-bottom: 0vh;
+    }
+
+    .submit{
+        height:3vh;
+        width:20vw;
+    }
 }

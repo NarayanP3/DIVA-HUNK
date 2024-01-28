@@ -1,0 +1,371 @@
+*{
+    font-family: 'FONTSPRING DEMO - Freigeist Con Black', sans-serif;
+}
+html,
+body {
+    margin: 0px;
+    overflow-x: hidden;
+}
+
+.header{
+    background-image: url("{% static 'images/Group 1.png' %}");
+
+    height: 100vh;
+    width: 100vw;
+    background-size: 118vw 136vh;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    background-position: -18vw -38vh;
+    display: flex; 
+    flex-direction: row;
+}
+.header-text{
+    width: 55vw;
+}
+
+.header-image{
+    height:100vh;
+    width: 45vw;
+    margin-left: 10vw;
+}
+.alcher-logo{
+    width:60px;
+    height: 60px;
+    
+}
+
+
+.sections{
+    padding-top:2vw;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    
+}
+.heading{
+    padding-top: 2vw;;
+    width: 90%;
+    margin-left: 5%;
+    font-size: 70px;
+    font-weight: 1000;
+    margin-bottom: 5px;;
+}
+.description{
+    width: 60%;
+    margin-left: 5%;
+    font-weight: bold;
+    margin-bottom: 2vw;
+    
+}
+.description-2{
+    width: 90%;
+    margin-left: 5%;
+    font-weight: bolder;
+    font-size: 25px;
+}
+.image-vote-here{
+    margin-left: 5%;
+    width: 250px;
+    margin-top: 5vw;
+}
+
+
+
+.footer{
+    background-image: url("images/footer-background.png");
+    height:50vw;
+    background-size: cover;
+    background-color:  #222222;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #F1F1F1;
+    width: 100%;
+    height: auto;
+}
+
+.footer-iit{
+    margin-top: 11%;
+    font-size:1.8vw;
+    
+
+}
+
+.footer-alcher{
+    font-size: 4.2vw;
+    font-weight: 1000;
+    width:80%;
+    text-align: center;
+    margin-bottom: 1.5%;
+    
+    
+
+}
+.following{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width:70%;
+
+}
+
+
+.footer-divahunk{
+    font-size: 7.5vw;
+    font-weight: 800;
+    
+    font-family: "uncut sans",sans-serif;
+    margin-bottom: 2%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    letter-spacing: 1.5vw;
+    
+}
+.italic-footer{
+    
+    font-style: italic;
+    font-size: 7.5vw;
+    font-weight:1000;
+    margin-right: 1.5vw;
+    
+
+}
+.contact{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin: auto;
+    margin-bottom: 1.5%;
+
+}
+.contact-info{
+    display: flex;
+    flex-direction: column;
+    margin-right: 2vw;
+}
+
+.name{
+    font-weight: 600;
+    margin-bottom: 10%;
+    font-size:1.121vw;
+}
+
+.phone{
+    font-size:1.12vw;
+
+}
+
+.email{
+    font-size:1.12vw;
+}
+.creator-info{
+    width:100%;
+    margin-left:10%;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.12vw;
+    margin-bottom: 2%;
+    align-items: flex-end;
+
+    
+    
+}
+.business-contact{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 38vw;
+}
+
+
+
+
+@media (max-width:650px){
+    .header{
+        display: none;
+    }
+    .footer{
+        display: none;
+    }
+
+}
+@media (min-width: 650px){
+    .header-mobile{
+        display: none;
+    }
+   
+}
+
+.heading-mobile{
+    color:white;
+    font-weight: 1000;
+    font-size: 50px;
+    margin-left: 10%;
+    padding-top: 30vw;
+    margin-bottom: 1vh;
+}
+@media (max-width:650px){
+    .description{
+        color: white;
+        margin-left: 10%;
+        font-size: 15px;
+        margin-top: 0px;
+    }
+    .description-2{
+        color: white;
+        margin-left: 10%;
+        font-size: 20px;;
+    }
+    .footer-iit{
+        margin-top: 17%;
+        font-weight: 600;
+        font-size: 2.2vw;
+    }
+    .footer-alcher{
+        font-size: 5vw;
+    }
+    .name{
+        font-size: 2vw;
+        margin-bottom: 1.5vh;
+    }
+    .phone{
+        font-size: 2vw;
+    }
+    .email{
+        font-size: 2vw;
+    }
+    .footer-divahunk{
+        font-weight: 800;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 10vw;
+    }
+    
+}
+
+.image-vote-mobile{
+    margin-left: 10%;
+    margin-top: 5vh;;
+}
+
+
+.mobile-footer{
+    background-color: black;
+    background-image: url("images/footer-background.png");
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: 100vw 50vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;;
+}
+/* .footer-divahunk{
+    font-weight: 800;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 10vw;
+} */
+.people-contact{
+    display: flex;
+    flex-direction: column;
+  
+}
+
+
+.contact-footer{
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 100%;
+    margin-left: 10%;
+}
+.following-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    height: 25vh;
+    width: 65%;
+}
+@media(min-width:650px){
+    .mobile-footer{
+        display: none;
+    }
+
+}
+
+
+.alcher-logo-mobile{
+    width:40px;
+    height: 40px;
+}
+
+
+
+
+.header-mobile{
+    background-image: url("images/diva.png");
+    height: 100vh;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    background-size: 100vw 100vh;
+}
+
+.alcher-heading{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  
+    margin:auto;
+    padding-top: 3vh;
+    margin-left: 10%;
+    
+        
+}
+.vote-button{
+    border:2px solid black;
+    margin-left: 5%;
+    width: 250px;
+    margin-top: 5vw;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 1000;
+    font-size: 25px;
+    justify-content: space-around;
+    border-radius: 15px;
+    background-color: #91B6FF;
+    cursor: pointer;
+}
+.vote-button-mobile{
+    border:2px solid black;
+    margin-left: 10%;
+    width: 250px;
+    margin-top: 5vw;
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 1000;
+    font-size: 25px;
+    justify-content: space-around;
+    border-radius: 30px;
+    background-color: #91B6FF;
+    cursor: pointer;
+
+}
+.vote-button-mobile img{
+    transform: rotate(270deg);
+}

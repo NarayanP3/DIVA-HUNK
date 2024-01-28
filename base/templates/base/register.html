@@ -1,288 +1,189 @@
-{% extends 'base/home.html' %} {% load static %} {% block content %}
+{% load static %}
 
-<!-- <div style="font-size: 30px">Voting for {{candidate.name}}</div> -->
+<!DOCTYPE html>
+<html lang="en">
 
-<link rel="stylesheet" href="{% static '/css/register.css' %}" />
-<div class="largest-box" style="background-color: #212121; height: 120vh; padding: 5vw 0%;position: sticky;top: -25vh;">
-  
-  <form
-    method="POST"
-    style="font-size: 30px;width: 90%;height: auto;border-radius: 3rem;margin: auto;background-color: white;padding-top: 1%;">
-    {% csrf_token %}
-    <div
-      style="
-        display: flex;
-        font-family: 'outfit';
-        margin-left: 10%;
-        cursor: pointer;
-      "
-      onclick="window.location.href=`{% url 'home' %}`"
-    >
-      <img
-        src="{% static '/images/Chevron-left.svg' %}"
-        style="width: 1.5vw; margin-right: 1%"
-      />
-      <div style="font-weight: 200; font-size: 1.5vw">Back</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+    <link rel="stylesheet" href="{%static 'css/headerfooter.css'%}">
+
+    <title>Voting Page</title>
+</head>
+
+<body>
     </div>
-    <div class="form-wide">
-      <img src="{{candidate.image.url}}" class="diva-img" />
-      <div class="registerForm">
-        <div class="candidate-detail">
-          <div class="heading">
-            <h4>{{type}}’s Name</h4>
-          </div>
-          <div class="diva-name">
-            <h2>{{candidate.name}}</h2>
-            <button type="button" class="sharebtn" onclick="cpytxt()">
-              Share Link
-              <img
-                src="{% static '/images/ShareLink.png' %}"
-                class="share-link-img"
-              />
-            </button>
-          </div>
-          <div class="institute">Institute: {{candidate.college}}</div>
-          
+    <img src="{% static 'images/headerShape.png'%}" class="headerShape">
+    <div class="register">
+        <div class="header1">
+            <div><img src="{% static 'images/alcherLogo.png' %}"></div>
+            <div>ALCHERINGA</div>
         </div>
-        <div class="instruction">
-          Please enter the required info to prevent multiple votes <br />We will
-          send an OTP to te entered Email for verification
-        </div>
-        <div style="color: green;padding-bottom: 0px;" class="institute">{{message}}</div>
-        <div class="input-topic">
-          <div class="label" for="exampleInputUser">Your Name</div>
-          <input type="text" name="name" id="name" class="input input1 inputs" required />
-          <!-- {{form.name}} -->
-        </div>
-        <div class="input-topic">
-          <div class="label" for=" exampleInputEmail">Contact No.</div>
-          <input type="number" name="contactno" id="contactno" class="input input1" required />
-          <!-- {{form.contact}} -->
-        </div>
-        <div class="input-topic">
-          <div class="label" for=" exampleInputPassword1">E-mail</div>
-          <div style="display: flex">
-            <input type="email" name="email" id="email" class="input input2 " required />
-            <!-- {{form.email}} -->
 
-            <button type="submit" name="sendOTP" id="sentdOTPbtn" class="sendOTPbtn">
-              Send OTP
-            </button>
-          </div>
-        </div>
-        <div class="label" for=" exampleInputPassword2">OTP</div>
-
-        {% if disabled %}
-        <input type="text" name="name" class="input input2 " value="{{name}}"  required style="display:none" />
-        <input type="number" name="contactno" class="input input2 " value="{{contactno}}"  required style="display:none" />
-        <input type="email" name="email" class="input input2 " value="{{email}}"  required style="display:none" />
+        {% if message == "Only one vote from one email" %}
+            <div class = "voteDone" style = "display: flex;">
+                You have already voted with these details!
+            </div>
         {% endif %}
 
-        <div class="otp-input input-topic">
-          <input
-            type="text"
-            pattern="[0-9]*"
-            id="tx1"
-            inputmode="numeric"
-            maxlength="1"
-            class="input otp-input" name="otp_1"
-            onkeyup="move(event,'', 'tx1', 'tx2')"
-          />
-          <input
-            type="text"
-            id="tx2"
-            pattern="[0-9]*"
-            inputmode="numeric"
-            maxlength="1"
-            class="input otp-input" name="otp_2"
-            onkeyup="move(event,'tx1', 'tx2', 'tx3')"
-          />
-          <input
-            type="text"
-            id="tx3"
-            pattern="[0-9]*"
-            inputmode="numeric"
-            maxlength="1"
-            class="input otp-input" name="otp_3"
-            onkeyup="move(event,'tx2', 'tx3', 'tx4')"
-          />
-          <input
-            type="text"
-            id="tx4"
-            pattern="[0-9]*"
-            inputmode="numeric"
-            maxlength="1"
-            class="input otp-input" name="otp_4"
-            onkeyup="move(event,'tx3', 'tx4', '')"
-          />
-          <!-- {{form.otp}} -->
-          <button type="submit" name="verify" class="finish-btn" disabled>
-            Finish
-            <img
-              src="{% static '/images/Chevron-right.svg' %}"
-              class="chevron-right-img"
-            />
-          </button>
+        <div class="registerPage">
+            <div class="registerImages">
+                <!-- <img src="{{ candidate.image.url }}" alt="Description of the image" class="fade-in-out image1"> -->
+                <img src="{%static 'images/image 1.png'%}" class="fade-in-out image1">
+                <img src="{%static 'images/Stars.png'%}"class="imageStar">
+                <img src="{%static 'images/image 2.png'%}" class="fade-in-out image2">
+                <img src="{%static 'images/image 3.png'%}" class="fade-in-out image3">
+            </div>
+            <div class="registerMain">
+                <div class="formHead">
+                    <p class="heading2">ALCHER {{type}}</p>
+                    <button class="shareProfile" id="shareButton">
+                        <img src="{%static 'images/shareIcon.png'%}">
+                        <div class="shareContent">SHARE PROFILE</div>
+                    </button>
+                </div>
+                <p class="participant">{{ candidate.name }}</p>
+                <br>
+                <p class="formNote">Please enter the required information to prevent multiple votes. We will send an OTP
+                    to <thead>
+                        the entered Email for verification. </p>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="enterName input">
+                        <input name="name" id="name" type="text" placeholder="Your name" required>
+                    </div>
+                    <div class="phone1">
+                        <div class="option">
+                            <select id="dropdown" name="country_code">
+                                <option value="+91">+91</option>
+                                <option value="+880">+880</option>
+                            </select>
+                        </div>
+                        <div class="contactNumber input">
+                            <input name="contact" id="contact" class="phone1" type="number" placeholder="Contact No."
+                                required>
+                        </div>
+                    </div>
+                    <div class="emailID input">
+                        <input name="email" id="email" type="email" placeholder="Email ID" required>
+                    </div>
+                    <br>
+                    <button class="OTPSend" name = "sendOTP" id="OTP_send"> SEND OTP </button>
+
+                    {% if disabled %}
+                    <input type="text" name="name" class="input input2 " value="{{name}}" required
+                        style="display:none" />
+                    <input type="number" name="contact" class="input input2 " value="{{contact}}" required
+                        style="display:none" />
+                    <input type="email" name="email" class="input input2 " value="{{email}}" required
+                        style="display:none" />
+                    {% endif %}
+
+                    <p class="OTPHead"> OTP </p>
+                    <div class="OTPCollect">
+                        <div id="inputs" class="inputs">
+                            <input class="OTP" type="text" inputmode="numeric" id="otp_1" name="otp_1" maxlength="1"
+                                oninput="moveToNextInput(this)">
+                            <input class="OTP" type="text" inputmode="numeric" id="otp_2" name="otp_2" maxlength="1"
+                                oninput="moveToNextInput(this)" onkeydown="moveToPreviousInput(event, this)">
+                            <input class="OTP" type="text" inputmode="numeric" id="otp_3" name="otp_3" maxlength="1"
+                                oninput="moveToNextInput(this)" onkeydown="moveToPreviousInput(event, this)">
+                            <input class="OTP" type="text" inputmode="numeric" id="otp_4" name="otp_4" maxlength="1"
+                                oninput="moveToNextInput(this)" onkeydown="moveToPreviousInput(event, this)">
+                            <input class="OTP" type="text" inputmode="numeric" id="otp_5" name="otp_5" maxlength="1"
+                                oninput="moveToNextInput(this)" onkeydown="moveToPreviousInput(event, this)">
+                            <input class="OTP" type="text" inputmode="numeric" id="otp_6" name="otp_6" maxlength="1"
+                                onkeydown="moveToPreviousInput(event, this)">
+                        </div>
+                    </div>
+                    <button class="submit"> SUBMIT MY VOTE </button>
+                </form>
+            </div>
         </div>
-      </div>
     </div>
-  </form>
-</div>
-
-<div class="form-mob" id="form-mob">
-  <!-- <div style="display: flex; font-family: 'outfit'; margin-left: 10%; margin-top: 2%;">
-    <img src="{% static '/images/Chevron-left.svg' %}" style="width: 3vw; margin-right: 1%;" />
-    <div style="font-weight: 200; font-size: 2.5vw;">Back</div>
-  </div> -->
-  <div style="position: relative">
-    <img src="{{candidate.image.url}}" class="diva-img" />
-    <button type="button" class="sharelinkbtn-mob" onclick="cpytxt()">
-      Share Link
-    </button>
-  </div>
-  <div class="candidate-detail">
-    <div class="heading">
-      <h4>{{type}}’s Name</h4>
     </div>
-    <div class="diva-name">
-      <h1>{{candidate.name}}</h1>
-    </div>
-    <div class="institute">Institute: {{candidate.college}}</div>
-  </div>
-  <div class="instruction">
-    Please enter the required info to prevent multiple votes <br />We will send
-    an OTP to te entered Email for verification
-  </div>
-  <div style="width: 95vw; margin-left: 5vw; margin-top: 8vw; width: 80vw">
-    <div class="input-topic">
-      <div class="label" for="exampleInputUser">Your Name</div>
-      <input type="text" class="input input1 " id="name" name="name" required/>
-      <!-- {{form.name}} -->
-    </div>
-    <div class="input-topic">
-      <div class="label" for=" exampleInputEmail">Contact No.</div>
-      <input type="number" class="input input1 " id="contactno" name="contactno" required/>
-      <!-- {{form.contact}} -->
-    </div>
-    <div class="input-topic">
-      <div class="label" for=" exampleInputPassword1">E-mail</div>
-      <div>
-        <input type="email" class="input input2  " id="email" name="email" required/>
-        <!-- {{form.email}} -->
-      </div>
-      <button type="submit" name="sendOTP" id="sentdOTPbtn" class="sendOTPbtn">Send OTP</button>
-    </div>
-    <div class="label" for=" exampleInputPassword2">OTP</div>
-    <div class="otp-input input-topic">
-      <input
-        type="text"
-        id="txt1"
-        pattern="[0-9]*"
-        inputmode="numeric"
-        maxlength="1"
-        class="input otp-input" name="otp_1"
-        onkeyup="move(event,'', 'txt1', 'txt2')"
-      />
-      <input
-        type="text"
-        id="txt2"
-        pattern="[0-9]*"
-        inputmode="numeric"
-        maxlength="1"
-        class="input otp-input" name="otp_2"
-        onkeyup="move(event,'txt1', 'txt2', 'txt3')"
-      />
-      <input
-        type="text"
-        id="txt3"
-        pattern="[0-9]*"
-        inputmode="numeric"
-        maxlength="1"
-        class="input otp-input" name="otp_3"
-        onkeyup="move(event,'txt2', 'txt3', 'txt4')"
-      />
-      <input
-        type="text"
-        id="txt4"
-        pattern="[0-9]*"
-        inputmode="numeric"
-        maxlength="1"
-        class="input otp-input" name="otp_4"
-        onkeyup="move(event,'txt3', 'txt4', '')"
-      />
-      <!-- {{form.otp}} -->
-    </div>
-    <button type="submit" name="verify" class="finish-btn" disabled>
-      Finish
-      <!-- <img
-        src="{% static '/images/Chevron-right.svg' %}"
-        class="chevron-right-img"
-      /> -->
-    </button>
-  </div>
-</div>
-<script type="text/javascript">
-  function cpytxt() {
-    navigator.clipboard.writeText(window.location.href);
-  }
-  function move(e,p,c,n){
-    var length = document.getElementById(c).value.length;
-    var maxlength = document.getElementById(c).getAttribute("maxlength");
-    if(length==maxlength){
-      if(n != ""){
-        document.getElementById(n).focus();
 
-      }
-      
-    }
+    {% include "base/footer.html" %}
 
-    if(e.key == "Backspace"){
-      if(p != ""){
-        document.getElementById(p).focus();
-      }
-    }
-    console.log(length);
-  }
-</script>
-<script>
-  function move(e,p,c,n){
-    var length = document.getElementById(c).value.length;
-    var maxlength = document.getElementById(c).getAttribute("maxlength");
-    if(length==maxlength){
-      if(n != ""){
-        document.getElementById(n).focus();
+    <script>
+        function moveToNextInput(currentInput) {
+            // Move focus to the next input
+            var nextInput = currentInput.nextElementSibling;
+            if (nextInput && currentInput.value !== '') {
+                nextInput.focus();
+            }
+        }
+        function moveToPreviousInput(event, currentInput) {
+            if (event.key === 'ArrowLeft' && currentInput.selectionStart === 0) {
+                var previousInput = currentInput.previousElementSibling;
+                if (previousInput) {
+                    previousInput.focus();
+                }
+            }
+        }
 
-      }
-      
-    }
+        document.addEventListener("DOMContentLoaded", function () {
+            let currentImageIndex = 0;
+            const images = document.querySelectorAll(".fade-in-out");
 
-    if(e.key == "Backspace"){
-      if(p != ""){
-        document.getElementById(p).focus();
-      }
-    }
-    console.log(length);
-  }
-  
+            function showNextImage() {
+                const currentImage = images[currentImageIndex];
+                currentImage.style.opacity = 0; // fade out the current image
+
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+
+                const nextImage = images[currentImageIndex];
+
+                nextImage.style.opacity = 1; // fade in the next image
+
+                setTimeout(showNextImage, 3000); // wait for 3 seconds and repeat
+            }
+
+            showNextImage(); // start the initial transition
+        });
+
+        if ("{{disabled}}" == 'True') {
+            document.getElementById('name').value = "{{name}}";
+            document.getElementById('name').disabled = "true";
+            document.getElementById('contact').value = "{{contact}}";
+            document.getElementById('contact').disabled = "true";
+            document.getElementById('email').value = "{{email}}";
+            document.getElementById('email').disabled = "true";
+            document.getElementById("OTP_send").disabled = "true";
+            document.getElementById("OTP_send").style.cursor = "default";
+            document.getElementsByName('otp_1')[0].required = true;
+            document.getElementsByName('otp_2')[0].required = true;
+            document.getElementsByName('otp_3')[0].required = true;
+            document.getElementsByName('otp_4')[0].required = true;
+            document.getElementsByName('otp_5')[0].required = true;
+            document.getElementsByName('otp_6')[0].required = true;
+            document.getElementsByName('verify')[0].disabled = false;
+            document.getElementsByName('verify')[0].style.cursor = 'pointer';
+        }
+    </script>
+
+    <script>
+        document.getElementById('shareButton').addEventListener('click', function () {
+            var currentUrl = window.location.href;
+
+            var tempInput = document.createElement('input');
+            tempInput.value = currentUrl;
+
+            document.body.appendChild(tempInput);
+
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999);
+
+            document.execCommand('copy');
+
+            document.body.removeChild(tempInput);
+
+            alert('URL copied to clipboard: ' + currentUrl);
+        });
+    </script>
 
 
-  if("{{disabled}}" == 'True'){
-    document.getElementById('name').value= "{{name}}";
-    document.getElementById('name').disabled= "true";
-    document.getElementById('contactno').value= "{{contactno}}";
-    document.getElementById('contactno').disabled= "true";
-    document.getElementById('email').value= "{{email}}";
-    document.getElementById('email').disabled= "true";
-    document.getElementById("sentdOTPbtn").disabled="true";
-    document.getElementById("sentdOTPbtn").style.cursor="default";
-    document.getElementsByName('otp_1')[0].required = true;
-    document.getElementsByName('otp_2')[0].required = true;
-    document.getElementsByName('otp_3')[0].required = true; 
-    document.getElementsByName('otp_4')[0].required = true;
-    document.getElementsByName('verify')[0].disabled = false;
-    document.getElementsByName('verify')[0].style.cursor = 'pointer';
-    
-  }
-</script>
+</body>
 
-{% endblock %}
+</html>

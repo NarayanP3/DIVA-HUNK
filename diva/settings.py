@@ -76,30 +76,36 @@ WSGI_APPLICATION = 'diva.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-       
-
-       'ENGINE': 'django.db.backends.postgresql',
-
-        'NAME': os.environ.get('db_name'),
-
-        'USER': os.environ.get('db_user'),
-
-        'PASSWORD': os.environ.get('db_password'),
-
-        'HOST': os.environ.get('db_host'),
-
-        'PORT': os.environ.get('db_port')
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+       
+
+#        'ENGINE': 'django.db.backends.postgresql',
+
+#         'NAME': os.environ.get('db_name'),
+
+#         # 'USER': os.environ.get('db_user'),
+
+#         'USER' : 'postgres',
+
+#         'PASSWORD' : 'Prince@8431',
+
+#         # 'PASSWORD': os.environ.get('db_password'),
+
+#         'HOST': '127.0.0.1',
+
+#         # 'HOST': os.environ.get('db_host'),
+
+#         'PORT': '5432' #  os.environ.get('db_port')
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -142,13 +148,13 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = './static_files/'
 
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+# AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+# AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+# AWS_S3_FILE_OVERWRITE = False
+# AWS_DEFAULT_ACL = None
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 
 
 MEDIA_URL = '/image_uploads/'
@@ -164,6 +170,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = 'hrishikeshannamboodiri99@gmail.com'
+EMAIL_HOST_PASSWORD = 'tpko twgx mspl bgdy'
 

@@ -7,19 +7,19 @@ import os
 
 # Create your views here.
 
-def testaccess(request):
-    # name = os.path.basename('base/test.txt')
-    # with open('base/test.txt') as f:
-    #     s = f.read()
-    f = open('base/test.txt', 'w')
-    f.write('This is a written file')
-    f.close()
-    f = open('base/test.txt', 'r')
-    name = f. read()
-    print(name)
-    f. close()
+# def testaccess(request):
+#     # name = os.path.basename('base/test.txt')
+#     # with open('base/test.txt') as f:
+#     #     s = f.read()
+#     f = open('base/test.txt', 'w')
+#     f.write('This is a written file')
+#     f.close()
+#     f = open('base/test.txt', 'r')
+#     name = f. read()
+#     print(name)
+#     f. close()
 
-    return render(request, 'base/testaccess.html', {'name':name})
+#     return render(request, 'base/testaccess.html', {'name':name})
 
 
 def home(request):
@@ -30,39 +30,41 @@ def home(request):
         'hunks': hunks
     }
     
-    return render(request, 'base/home.html', context)
+    return render(request, 'base/header.html', context)
 
+# def register(request):
+#     return render(request, 'base/register.html')
 
-def divaHunkList(request):
-    context = {
-        'diva': [],
-        'hunk': [],
-        'message': "",
-        'isdiva':False,
-    }
-    # We need need to get form data to render the context
-    searchquery = request.GET.get('search')
-    if searchquery!=None and searchquery!="":
-        searchDiva=Diva.objects.filter(name__icontains=searchquery)
-        searchHunk=Hunk.objects.filter(name__icontains=searchquery)
-        if searchDiva:
-            context.update(diva=searchDiva)
-        elif searchHunk:
-            context.update(hunk=searchHunk)
-        else:
-            context.update(message="No match found")
-            return render(request, 'base/list.html',context)
-    else:
+# def divaHunkList(request):
+#     context = {
+#         'diva': [],
+#         'hunk': [],
+#         'message': "",
+#         'isdiva':False,
+#     }
+#     # We need need to get form data to render the context
+#     searchquery = request.GET.get('search')
+#     if searchquery!=None and searchquery!="":
+#         searchDiva=Diva.objects.filter(name__icontains=searchquery)
+#         searchHunk=Hunk.objects.filter(name__icontains=searchquery)
+#         if searchDiva:
+#             context.update(diva=searchDiva)
+#         elif searchHunk:
+#             context.update(hunk=searchHunk)
+#         else:
+#             context.update(message="No match found")
+#             return render(request, 'base/list.html',context)
+#     else:
         
-        if("Hunk" in request.GET):
-            results=Hunk.objects.all()
-            context.update(hunk=results)
-        else :
-            results=Diva.objects.all() 
-            context.update(diva=results)
-            context.update(isdiva=True)
+#         if("Hunk" in request.GET):
+#             results=Hunk.objects.all()
+#             context.update(hunk=results)
+#         else :
+#             results=Diva.objects.all() 
+#             context.update(diva=results)
+#             context.update(isdiva=True)
     
-    return render(request, 'base/list.html',context)
+#     return render(request, 'base/list.html',context)
 
 
 def divaRegistration(request, pk):
@@ -74,7 +76,7 @@ def divaRegistration(request, pk):
         'message': "",
         'disabled':False,
         'name':'',
-        'contactno':'',
+        'contact':'',
         'email':'',
     }
     if (request.method == 'POST'):
@@ -98,13 +100,14 @@ def divaRegistration(request, pk):
             context.update(message='OTP sent successfully')
             context.update(disabled='True')
             context.update(name=request.POST['name'])
-            context.update(contactno=request.POST['contactno'])
+            context.update(contact=request.POST['contact'])
             context.update(email=request.POST['email'])
+            Voter.objects.update(diva=candidate)
             return render(request, 'base/register.html', context)
 
         if 'verify' in request.POST:
             email = request.POST['email']
-            otp =  request.POST['otp_1']+request.POST['otp_2']+request.POST['otp_3']+request.POST['otp_4']
+            otp =  request.POST['otp_1']+request.POST['otp_2']+request.POST['otp_3']+request.POST['otp_4']+request.POST['otp_5']+request.POST['otp_6']
 
             find = Voter.objects.filter(email=email)
             if not find.exists():
@@ -115,14 +118,14 @@ def divaRegistration(request, pk):
                 context.update(message='wrong otp')
                 context.update(disabled='True')
                 context.update(name=request.POST['name'])
-                context.update(contactno=request.POST['contactno'])
+                context.update(contact=request.POST['contact'])
                 context.update(email=request.POST['email'])
                 return render(request, 'base/register.html', context)
             
-            candidate.votes+=1
+            candidate.votes=candidate.votes+1
             candidate.save()
             find.update(diva=candidate)
-        return redirect('thanks_hunk')
+        return redirect('home')
     else:
         form = VoterRegisterForm()
     context.update(form=form)
@@ -138,7 +141,7 @@ def hunkRegistration(request, pk):
         'message': "",
         'disabled':False,
         'name':'',
-        'contactno':'',
+        'contact':'',
         'email':'',
     }
     if (request.method == 'POST'):
@@ -147,7 +150,6 @@ def hunkRegistration(request, pk):
             context.update(form=form,message='form is invalid')
             return render(request, 'base/register.html', context)
         context.update(form=form)
-        #voter = form.save(commit=False)
         if 'sendOTP' in request.POST:
             voter = form.save(commit=False)
             find = Voter.objects.filter(email=voter.email)
@@ -161,13 +163,14 @@ def hunkRegistration(request, pk):
             context.update(message='OTP sent successfully')
             context.update(disabled='True')
             context.update(name=request.POST['name'])
-            context.update(contactno=request.POST['contactno'])
+            context.update(contact=request.POST['contact'])
             context.update(email=request.POST['email'])
+            Voter.objects.update(hunk=candidate)
             return render(request, 'base/register.html', context)
 
         if 'verify' in request.POST:
             email = request.POST['email']
-            otp =  request.POST['otp_1']+request.POST['otp_2']+request.POST['otp_3']+request.POST['otp_4']
+            otp =  request.POST['otp_1']+request.POST['otp_2']+request.POST['otp_3']+request.POST['otp_4']+request.POST['otp_5']+request.POST['otp_6']
             
             find = Voter.objects.filter(email=email)
             if not find.exists():
@@ -179,21 +182,21 @@ def hunkRegistration(request, pk):
                 context.update(message='OTP sent successfully')
                 context.update(disabled='True')
                 context.update(name=request.POST['name'])
-                context.update(contactno=request.POST['contactno'])
+                context.update(contact=request.POST['contact'])
                 context.update(email=request.POST['email'])
                 return render(request, 'base/register.html', context)
             
             candidate.votes+=1
             candidate.save()
             find.update(hunk=candidate)
-        return redirect('thanks_diva')
+        return redirect('home')
     else:
         form = VoterRegisterForm()
     context.update(form=form)
     return render(request, 'base/register.html', context)
 
-def thanksdiva(request):
-    return render(request, 'base/thanks_diva.html')
+# def thanksdiva(request):
+#     return render(request, 'base/thanks_diva.html')
 
-def thankshunk(request):
-    return render(request, 'base/thanks_hunk.html')
+# def thankshunk(request):
+#     return render(request, 'base/thanks_hunk.html')
