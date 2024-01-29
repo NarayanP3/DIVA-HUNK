@@ -21,7 +21,7 @@
         <div class="header-text">
             <div class="sections">
                 <img class="alcher-logo" src="{%static 'images/alcher-logo.png'%}" style="margin-right: 2vw;" alt="">
-                <h1 style="font-weight:800">ALCHERINGA</h1>
+                <h1 >ALCHERINGA</h1>
             </div>
 
             <h1 class="heading">DIVA HUNK</h1>
@@ -57,7 +57,7 @@
             fest.</div>
         <div class="description-2">Vote for your favourite participants</div>
 
-        <button class="vote-button-mobile">
+        <button onclick="scrolltovote()" class="vote-button-mobile">
 
             VOTE HERE
             <img style="width:25px;height:25px;" src="{%static 'images/Arrow.png'%}" alt="">
@@ -96,6 +96,7 @@
     <script>
         function scrolltovote() {
             var targetDiv = document.getElementById('vote_div');
+            
             targetDiv.scrollIntoView({ behavior: 'smooth' });
         }
     </script>
