@@ -27,6 +27,12 @@
             </div>
         {% endif %}
 
+        {% if message == "wrong otp" %}
+        <div class = "wrongOTP" style = "display: flex;">
+            Wrong OTP!
+        </div>
+        {% endif %}
+
         <div class="registerPage">
             <div class="registerImages">
                 <!-- <img src="{{ candidate.image.url }}" alt="Description of the image" class="fade-in-out image1"> -->
@@ -97,7 +103,7 @@
                                 onkeydown="moveToPreviousInput(event, this)">
                         </div>
                     </div>
-                    <button class="submit"> SUBMIT MY VOTE </button>
+                    <button class="submit" name = "verify"> SUBMIT MY VOTE </button>
                 </form>
             </div>
         </div>
