@@ -1,11 +1,4 @@
-@font-face {
-    font-family: 'ConBlack';
-    src: url("../fonts/ConBlack.otf") format('opentype');
-}
-@font-face {
-    font-family: 'Uncut';
-    src: url("../fonts/Uncut-Sans-VF.ttf") format('truetype');
-}
+
 body{
     background-color: #222222;
 }
@@ -26,6 +19,7 @@ body{
     font-family: 'ConBlack';
     gap:2vw;
     font-size:2.5vw;
+    font-family: 'FONTSPRING DEMO - Freigeist Con Black', sans-serif;
     line-height:3.5vw;
     color:#F1F1F1;
     padding-top:1.5%; padding-bottom:8%;
@@ -38,13 +32,13 @@ body{
     margin-left:2vw;
     gap:40%;
 }
-.voteDone{
+.voteDone, .wrongOTP{
     justify-content: center;
     align-items: center;
     gap:1vw;
     background-color:#91B6FF;
     color:#1E1E1E;
-    font-family: 'ConBlack';
+    font-family: 'FONTSPRING DEMO - Freigeist Con Black', sans-serif;
     height:4vh; width:65vw;
     font-size: 3vh;
     font-weight:850;
@@ -89,7 +83,7 @@ body{
 }
 .heading2{
     font-size:2.08vw;
-    font-family: 'ConBlack';
+    font-family: 'FONTSPRING DEMO - Freigeist Con Black', sans-serif;
     text-transform: uppercase;
 
 }
@@ -100,7 +94,7 @@ body{
     gap:1vw;
     background-color:#91B6FF;
     color:#1E1E1E;
-    font-family: 'ConBlack';
+    font-family: 'FONTSPRING DEMO - Freigeist Con Black', sans-serif;
     height:4vh; width:12vw;
     font-size: 1.5vh;
     font-weight:850;
@@ -111,16 +105,16 @@ body{
 .participant{
     margin-top:-2vw;
     font-size:4.8vw;
-    font-family: 'ConBlack';
+    font-family: 'FONTSPRING DEMO - Freigeist Con Black', sans-serif;
 }
 .formNote{
     margin-top:-3vw;
     font-size:1.04vw;
     width: 45vw;
-    font-family:'Uncut';
+    font-family:'Uncut Sans', sans-serif;
 }
 form{
-    font-family:'Uncut';
+    font-family:'Uncut Sans', sans-serif;
 }
 .input input[type=text],input[type=number], input[type=email]{
     width: 100%;
@@ -150,7 +144,7 @@ form{
     margin-top: 3vh;
     display: inline;
     border: none;
-    font-family: 'Uncut';
+    font-family:'Uncut Sans', sans-serif;
 }
 
 #dropdown{
@@ -173,7 +167,7 @@ select{
 .OTPSend{
     background-color:#91B6FF;
     color:#1E1E1E;
-    font-family: 'ConBlack';
+    font-family: 'FONTSPRING DEMO - Freigeist Con Black', sans-serif;
     height:4vh; width:7vw;
     font-size: 2vh;
     font-weight:850;
@@ -208,7 +202,7 @@ select{
 .submit{
     background-color:#91B6FF;
     color:#1E1E1E;
-    font-family: 'ConBlack';
+    font-family: 'FONTSPRING DEMO - Freigeist Con Black', sans-serif;
     height:4vh; width:12vw;
     font-size: 2vh;
     font-weight:850;
