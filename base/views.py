@@ -87,15 +87,17 @@ def divaRegistration(request, pk):
         context.update(form=form)
         # voter = form.save(commit=False)
         
+        global voter
         if 'sendOTP' in request.POST:
             voter = form.save(commit=False)
             find = Voter.objects.filter(email=voter.email)
+            # find2 = Voter.objects.filter(diva=voter.diva)
             if (find.count() >= 1):
                 if (find[0].diva):
                     context.update(message='Only one vote from one email')
                     return render(request, 'base/register.html', context)
             else:
-                voter.save()
+                voter = voter.save(commit=False)
             sendEmailOTP(voter.email)
             context.update(message='OTP sent successfully')
             context.update(disabled='True')
@@ -123,6 +125,7 @@ def divaRegistration(request, pk):
                 return render(request, 'base/register.html', context)
             
             candidate.votes=candidate.votes+1
+            voter.save()
             candidate.save()
             find.update(diva=candidate)
         return redirect('home')
