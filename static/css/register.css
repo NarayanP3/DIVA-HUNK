@@ -68,7 +68,8 @@ body{
     opacity:0;
     transition: opacity 2s ease-in-out;
     position: relative;
-    height:100%;
+    width: 30vw;
+    height:auto;
 }
 
 
