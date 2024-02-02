@@ -33,6 +33,12 @@
         </div>
         {% endif %}
 
+        {% if message == "otp expired" %}
+        <div class = "wrongOTP" style = "display: flex;">
+            OTP has expired! Enter your details again.
+        </div>
+        {% endif %}
+
         <div class="registerPage">
             <div class="registerImages">
                 <!-- <img src="{{ candidate.image.url }}" alt="Description of the image" class="fade-in-out image1"> -->
@@ -44,7 +50,7 @@
             <div class="registerMain">
                 <div class="formHead">
                     <p class="heading2">ALCHER {{type}}</p>
-                    <button class="shareProfile" id="shareButton">
+                    <button class="shareProfile" id="shareButton" onclick = "shareLink()">
                         <img src="{%static 'images/shareIcon.png'%}">
                         <div class="shareContent">SHARE PROFILE</div>
                     </button>
@@ -170,23 +176,40 @@
     </script>
 
     <script>
-        document.getElementById('shareButton').addEventListener('click', function () {
-            var currentUrl = window.location.href;
+        function shareLink() {
+            // Check if the Share API is available
+            if (navigator.share) {
+                navigator.share({
+                    title: 'ALCHER {{ type }}',
+                    text: '{{ candidate.name }}',
+                    url: window.location.href
+                })
+                .then(() => console.log('Shared successfully'))
+                .catch((error) => console.error('Error sharing:', error));
+            } else {
+                // Fallback for browsers that do not support the Share API
+                alert('Share API is not supported in this browser.');
+                // You can provide a fallback implementation here
+            }
+        }
+        
+        // document.getElementById('shareButton').addEventListener('click', function () {
+        //     var currentUrl = window.location.href;
 
-            var tempInput = document.createElement('input');
-            tempInput.value = currentUrl;
+        //     var tempInput = document.createElement('input');
+        //     tempInput.value = currentUrl;
 
-            document.body.appendChild(tempInput);
+        //     document.body.appendChild(tempInput);
 
-            tempInput.select();
-            tempInput.setSelectionRange(0, 99999);
+        //     tempInput.select();
+        //     tempInput.setSelectionRange(0, 99999);
 
-            document.execCommand('copy');
+        //     document.execCommand('copy');
 
-            document.body.removeChild(tempInput);
+        //     document.body.removeChild(tempInput);
 
-            alert('URL copied to clipboard: ' + currentUrl);
-        });
+        //     alert('URL copied to clipboard: ' + currentUrl);
+        // });
     </script>
 
 
