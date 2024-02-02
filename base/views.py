@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import Diva, Hunk, Voter
 from .forms import VoterRegisterForm
-from .email import sendEmailOTP
+from .email import sendEmailOTP, verifyEmailOTP
 from itertools import chain
+from django.http import HttpResponse
+from datetime import datetime, timedelta
 import os
 
 # Create your views here.
@@ -112,6 +114,14 @@ def divaRegistration(request, pk):
             find = Voter.objects.filter(email=email)
             if not find.exists():
                 context.update(message='Email does not match')
+                return render(request, 'base/register.html', context)
+            
+            if not verifyEmailOTP(email, otp):
+                context.update(message='otp expired')
+                context.update(disabled='True')
+                context.update(name='')
+                context.update(contact='')
+                context.update(email='')
                 return render(request, 'base/register.html', context)
 
             if find[0].otp != otp:
