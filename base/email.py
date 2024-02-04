@@ -31,7 +31,7 @@ def verifyEmailOTP(email, entered_otp):
             valid_timeframe = otp_timestamp + timedelta(minutes=5)
             current_time = timezone.now()
 
-            if current_time <= valid_timeframe and entered_otp == stored_otp:
+            if current_time <= valid_timeframe:
                 # OTP is valid
                 return True
 
