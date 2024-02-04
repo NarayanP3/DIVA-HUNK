@@ -139,6 +139,7 @@ def divaRegistration(request, pk):
     else:
         form = VoterRegisterForm()
     context.update(form=form)
+    context.update(message = 'registered successfully')
     return render(request, 'base/register.html', context)
 
 
@@ -186,10 +187,18 @@ def hunkRegistration(request, pk):
             if not find.exists():
                 context.update(message='Email dose not match')
                 return render(request, 'base/register.html', context)
+            
+            if not verifyEmailOTP(email, otp):
+                context.update(message='otp expired')
+                context.update(disabled='True')
+                context.update(name='')
+                context.update(contact='')
+                context.update(email='')
+                return render(request, 'base/register.html', context)
 
             if find[0].otp != otp:
                 context.update(message='wrong otp')
-                context.update(message='OTP sent successfully')
+                # context.update(message='OTP sent successfully')
                 context.update(disabled='True')
                 context.update(name=request.POST['name'])
                 context.update(contact=request.POST['contact'])
