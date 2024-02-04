@@ -35,6 +35,17 @@ body {
     object-fit: cover;
 }
 
+.voteSucc{
+    justify-content: center;
+    align-items: center;
+    gap:1vw;
+    background-color:#91B6FF;
+    color:#1E1E1E;
+    font-family: 'FONTSPRING DEMO - Freigeist Con Black', sans-serif;
+    height:4vh; width:40vw;
+    font-size: 3vh;
+    font-weight:850;
+}
 
 .sections{
     padding-top:2vw;
