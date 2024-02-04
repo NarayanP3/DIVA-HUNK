@@ -56,7 +56,8 @@ body{
     z-index:3;
     margin-top:2vw;
     left:5vw;
-    height:60vh;
+    width: 20vw;
+    height:auto;
 }
 .image2{
     z-index:1;
@@ -227,16 +228,19 @@ select{
     }
 }
 
-@media(max-width:425px){
+@media(max-width:600px){
     .registerPage{
         flex-direction: column;
         left:6vw;
     }
-    .fade-in-out, .imageStar{
-        height:30vh;
+    .fade-in-out{
+        width: 30vw;
+        height:auto;
     }
     .imageStar{
         left:10vw; margin-top:1vw;
+        width: 30vw;
+        height:auto;
     }
     .registerMain{
         margin-top:55vw;
