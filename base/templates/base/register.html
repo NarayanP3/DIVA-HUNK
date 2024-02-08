@@ -8,6 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
     <link rel="stylesheet" href="{%static 'css/headerfooter.css'%}">
+<<<<<<< HEAD
+=======
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+>>>>>>> edb1b73a6b1a0d748f41dcfc1ad2a0abe2377bdc
     <title>Voting Page</title>
 </head>
 
@@ -59,7 +64,7 @@
                 <p class="formNote">Please enter the required information to prevent multiple votes. We will send an OTP
                     to <thead>
                         the entered Email for verification. </p>
-                <form method="POST">
+                <form method="POST" id = "otpForm">
                     {% csrf_token %}
                     <div class="enterName input">
                         <input name="name" id="name" type="text" placeholder="Your name" required>
@@ -80,7 +85,7 @@
                         <input name="email" id="email" type="email" placeholder="Email ID" required>
                     </div>
                     <br>
-                    <button class="OTPSend" name = "sendOTP" id="OTP_send"> SEND OTP </button>
+                    <button class="OTPSend" name = "sendOTP" id="OTP_send" onclick = "sendOTP()" > SEND OTP </button>
 
                     {% if disabled %}
                     <input type="text" name="name" class="input input2 " value="{{name}}" required
@@ -191,6 +196,27 @@
                 // You can provide a fallback implementation here
             }
         }
+
+        function sendOTP() {
+            // Gather form data
+            var formData = $('#otpForm').serialize();
+
+            // Make an AJAX request
+            $.ajax({
+                // url: 'register.html',
+                type: 'POST',
+                data: formData,
+                success: function(response) {
+                    // Handle success (e.g., show a message)
+                    alert('OTP sent successfully');
+                },
+                error: function(error) {
+                    // Handle error (e.g., show an error message)
+                    alert('Error sending OTP');
+                }
+            });
+        }
+
         
         // document.getElementById('shareButton').addEventListener('click', function () {
         //     var currentUrl = window.location.href;
