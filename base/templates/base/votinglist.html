@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting List</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .participant-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .participant {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .participant h2 {
+            margin-top: 0;
+        }
+        .participant .votes {
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <h1>Voting List</h1>
+    <h2>Divas</h2>
+    <ul class="participant-list">
+        {% for participant in diva_participants %}
+            <li class="participant">
+                <h2>{{ participant.name }}</h2>
+                <p class="votes">Votes: {{ participant.votes }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <h2>Hunks</h2>
+    <ul class="participant-list">
+        {% for participant in hunk_participants %}
+            <li class="participant">
+                <h2>{{ participant.name }}</h2>
+                <p class="votes">Votes: {{ participant.votes}}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -214,6 +214,12 @@ def hunkRegistration(request, pk):
     context.update(form=form)
     return render(request, 'base/register.html', context)
 
+def voting_list(request):
+    diva_participants = Diva.objects.order_by('-votes')  # Assuming Diva model has a 'votes' field
+    hunk_participants = Hunk.objects.order_by('-votes')  # Assuming Hunk model has a 'votes' field
+    
+    return render(request, 'base/votinglist.html', {'diva_participants': diva_participants, 'hunk_participants': hunk_participants})
+
 # def thanksdiva(request):
 #     return render(request, 'base/thanks_diva.html')
 
