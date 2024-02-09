@@ -34,7 +34,7 @@
     <ul class="participant-list">
         {% for participant in diva_participants %}
             <li class="participant">
-                <h2>{{ participant.name }}</h2>
+                <h2>{{ forloop.counter }}.&nbsp;&nbsp;{{ participant.name }}</h2>
                 <p class="votes">Votes: {{ participant.votes }}</p>
             </li>
         {% endfor %}
@@ -43,7 +43,7 @@
     <ul class="participant-list">
         {% for participant in hunk_participants %}
             <li class="participant">
-                <h2>{{ participant.name }}</h2>
+                <h2>{{ forloop.counter }}.&nbsp;&nbsp;{{ participant.name }}</h2>
                 <p class="votes">Votes: {{ participant.votes}}</p>
             </li>
         {% endfor %}

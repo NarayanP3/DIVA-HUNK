@@ -4,8 +4,6 @@ body{
 
 .vote_page{
     padding: 3vw 5.8vw 6vw 5.8vw;
-
-
 }
 
 .tab.active{
@@ -42,13 +40,13 @@ body{
 
 .divas{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(27vw, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr));
     gap: 1.6vw;
 }
 
 .hunks{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(27vw, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr));
     gap: 1.6vw;
 }
 
@@ -57,6 +55,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* transition: background-color 0.3s ease; */
 }
 
 .participants > div {
@@ -78,22 +77,29 @@ body{
 }
 
 .img_of_participant{
-    width: 28vw; 
-    height: auto;
+    width: 20vw; 
+    height: 25vw;
+    object-fit: cover;
+    /* transition: background-color 0.3s ease; */
 }
 
 .voting{
     position: absolute;
     text-align: center;
-    top: 64%;
+    top: 55%;
+    /* transition: background-color 0.3s ease; */
 }
+
+/* .voting:hover + .img_container{
+    background-color: rgba(0, 0, 0, 0.3);
+}  */
 
 .vote_button{
     /* width: 15vw; */
     /* height: auto; */
     cursor: pointer;
     background-color: #91B6FF;
-    padding: 0.3vw 3vw 0.3vw 3vw;
+    padding: 0.3vw 2.5vw 0.3vw 2.5vw;
     border:  0.2vw solid black;
     border-radius: 30px;
 }
@@ -102,16 +108,17 @@ body{
     font-size: 1.5vw;
     font-family: "FONTSPRING DEMO - Freigeist Con Black", sans-serif;
     font-weight: 800;
+    cursor: pointer;
 }
 
 .vote{
-    font-size: 2.5vw;
+    font-size: 1.8vw;
     font-weight: 850;
     font-family: "FONTSPRING DEMO - Freigeist Con Black", sans-serif;
 }
 
 .img_of_heart{
-    width: 2.1vw;
+    width: 1.7vw;
     height: auto;
     padding-left: 0.5vw;
 }
