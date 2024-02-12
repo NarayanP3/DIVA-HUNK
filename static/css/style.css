@@ -140,3 +140,22 @@ body{
         margin-top: -0.3vh;
     }
 }
+
+@media (max-width: 600px){
+    .participants > div.active {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .img_of_participant{
+        width: 46vw; 
+        height: 55vw;
+    }
+    .voting{
+        top: 75%;
+    }
+    .vote_button {
+        width:15vw;
+    }
+}
