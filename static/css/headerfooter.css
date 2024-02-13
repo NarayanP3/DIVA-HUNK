@@ -334,13 +334,25 @@ body {
 
 
 
-.header-mobile{
+.header-mobile {
     background-image: url("/static/images/diva.png");
     height: 100vh;
     background-repeat: no-repeat;
     box-sizing: border-box;
     background-size: 100vw 100vh;
+    animation: imageSwitch 4s infinite; /* Switch every 2 seconds (2s for each image, infinite loop) */
+    transition: background-image 2s ease; /* Optional: add a smooth transition effect */
 }
+
+@keyframes imageSwitch {
+    0%, 100% {
+        background-image: url("/static/images/diva.png");
+    }
+    50% {
+        background-image: url("/static/images/hunk.png");
+    }
+}
+
 
 .alcher-heading{
     width: 100%;
