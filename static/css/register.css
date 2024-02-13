@@ -5,7 +5,7 @@ body{
 .headerShape{
     z-index:-1; position:relative;
     margin-left:-2%; margin-top:-2%;
-    height:50vh;
+    width: 40%; height: auto;
 }
 .register{
     height:fit-content;
