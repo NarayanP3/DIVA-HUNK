@@ -21,9 +21,9 @@ body{
 .register{
     /* height:fit-content; */
     position: relative;
-    padding:1vh 4vh 17vh 8vh;
+    padding:1vh 8vh 17vh 8vh;
     top: -0; 
-    left:1%;
+    left:0%;
     /* z-index: 1; */
 }
 .header1{
@@ -45,8 +45,8 @@ body{
 }
 .registerPage{
     display: flex; position:relative;
-    margin-left:2vw;
-    gap:40%;
+    margin-left:3vw;
+    gap:35vw;
 }
 .voteDone, .wrongOTP{
     justify-content: center;
@@ -63,6 +63,9 @@ body{
 .registerImages{
     display:flex;
     position:relative;
+    /* width: 20vw;
+    height: auto; */
+    /* padding-left: 1vw; */
 }
 .registerImages img{
     position:absolute;
@@ -85,8 +88,8 @@ body{
     opacity:0;
     transition: opacity 2s ease-in-out;
     position: relative;
-    /* width: 30vw; */
-    height:100%;
+    width: 33vw;
+    height:auto;
 }
 
 
@@ -94,13 +97,15 @@ body{
     margin-top:-2vw;
     /* margin-left: ; */
     color:#F1F1F1;
+    height: 100%;
 }
 .formHead{
     display:flex;
-    gap:20vw;
+    gap:18vw;
     align-items: center;
 }
 .heading2{
+    width: 20vw;
     font-size:2.08vw;
     font-weight: 800;
     font-family: 'FONTSPRING DEMO - Freigeist Con Black', sans-serif;
@@ -115,11 +120,11 @@ body{
     background-color:#91B6FF;
     color:#1E1E1E;
     font-family: 'FONTSPRING DEMO - Freigeist Con Black', sans-serif;
-    height:4vh; 
+    /* height:4vh;  */
     /* width:15vw; */
-    font-size: 2.7vh;
+    font-size: 1.2vw;
     font-weight:850;
-    padding: 1.3vw 1vw 1.3vw 1vw;
+    padding: 0.3vw 1vw 0.3vw 1vw;
     border-radius: 5px;
 }
 .shareProfile img{
@@ -142,7 +147,7 @@ form{
 }
 .input input[type=text],input[type=number], input[type=email]{
     width: 100%;
-  margin-top: 3.2vh;
+  margin-top: 1.9vw;
   padding-bottom: 0.5vw;
   display: inline-block;
   border: none;
@@ -152,9 +157,15 @@ form{
   font-size: 1.2vw;
   font-weight: 600;
 }
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    /* margin: 0; Optional */
+}
+
 .enterName, .emailID{
     border-bottom: 0.8px  solid;
-    width: 60%;
+    width: 50%;
     color: #F1F1F1;
     font-weight: 400;
 }
@@ -162,14 +173,14 @@ form{
 .phone1{
     display: flex;
     border-bottom: 0.8px  solid #F1F1F1;
-    width: 60%;
+    width: 50%;
     font-weight: 400;
 }
 
 .option{ 
     /* font-size: 1.2vw; */
     /* font-weight: 600; */
-    margin-top: 3vh;
+    margin-top: 1.9vw;
     display: inline;
     border: none;
     font-family:'Uncut Sans', sans-serif;
@@ -199,19 +210,21 @@ select{
     color:#1E1E1E;
     font-family: 'FONTSPRING DEMO - Freigeist Con Black', sans-serif;
     /* height:4vh; width:7vw; */
-    font-size: 2.6vh;
+    font-size: 1.2vw;
     padding: 0.3vw 1.2vw 0.3vw 1.2vw;
     font-weight:850;
     border-radius: 6px;
-    margin-bottom: 3vh;
+    margin-bottom: 1.2vw;
+    margin-top: 0.9vw;
 }
 .OTPHead{
+    font-size: 1.3vw;
     font-weight: 600;
 }
 .OTPCollect {
     display: flex; 
     justify-content: flex-start;
-    padding-bottom: 3vw;
+    padding-bottom: 2vw;
 }
 .inputs{
     display:flex;
@@ -236,18 +249,18 @@ select{
     color:#1E1E1E;
     font-family: 'FONTSPRING DEMO - Freigeist Con Black', sans-serif;
     /* height:4vh; width:12vw; */
-    font-size: 2.7vh;
+    font-size: 1.3vw;
     font-weight:850;
     border-radius: 6px;
     padding: 0.3vw 1.2vw 0.3vw 1.2vw;
 }
 
-@media(max-width: 768px){
+/* @media(max-width: 768px){
 
-    .registerPage{
+     .registerPage{
         left:-4vw;
         gap:52.5%;
-    }
+    } 
     .shareProfile{
         gap:1vw;
         height:3vh;
@@ -258,38 +271,58 @@ select{
     .submit, .OTPSend{
         font-size: 1.5vh;
     }
-}
+} */
 
 @media(max-width:600px){
+    .headerShape{
+        width: 40vw;
+        height: auto;
+    }
+    .register{
+        padding-bottom: 10vw;
+    }
     .registerPage{
         flex-direction: column;
-        left:6vw;
+        margin-left: 0;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        gap: 0;
+        /* padding-bottom: 0; */
+        /* left:6vw; */
     }
     .fade-in-out{
-        width: 30vw;
+        margin-left: 12vw;
+        width: 35vw;
         height:auto;
+        /* margin-top: 2vw; */
     }
     .imageStar{
-        left:10vw; margin-top:1vw;
-        width: 30vw;
+        left:20vw; margin-top:1vw;
+        width: 24vw;
         height:auto;
     }
     .registerMain{
         margin-top:55vw;
         position:relative;
-        left:2vw;
+        /* left:2vw; */
+        /* gap: 0; */
     }
     .shareProfile{
-        height:2vh;
-        font-size: 0.7vh;
+        /* height:2vh; */
+        /* font-size: 0.7vh; */
+        margin-left: 7vw;
     }
     .formNote{
         font-size: 0.9vh;
+        width: 55vw;
     }
-    .enterName, .phone, .emailID{
-        width:80%;
+    .enterName, .phone1, .emailID{
+        width:50%;
     }
-    .OTPSend{
+    .heading2{
+        width: 28vw;
+    }
+    /* .OTPSend{
         height: 3vh;
         width:12vw;
         margin-bottom: 0vh;
@@ -298,5 +331,5 @@ select{
     .submit{
         height:3vh;
         width:20vw;
-    }
+    } */
 }
