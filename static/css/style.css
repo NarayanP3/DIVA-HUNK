@@ -141,19 +141,56 @@ body{
     }
 }
 
-@media (max-width: 600px){
+@media (max-width: 750px){
     .participants > div.active {
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
         justify-content: center;
+        gap:3vh;
+    }
+    .vote_text{
+        font-size:3.7vw;
     }
     .img_of_participant{
-        width: 46vw; 
-        height: 55vw;
+        width: 61vw; 
+        height: 75vw;
+    }
+    .name_of_participant, .vote{
+        font-size: 3.5vw;
+    }
+    .img_of_heart{
+        width:3vw; height: auto;
     }
     .voting{
-        top: 75%;
+        top: 70%;
+    }
+    .vote_button {
+        width:15vw;
+    }
+}
+@media ((min-width: 751px) and (max-width: 1200px)){
+    .participants > div.active {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:  space-around;
+        gap:3vh;
+    }
+    .vote_text{
+        font-size:3.7vw;
+    }
+    .img_of_participant{
+        width: 42vw; 
+        height: 58vw;
+    }
+    .name_of_participant, .vote{
+        font-size: 3.5vw;
+    }
+    .img_of_heart{
+        width:3vw; height: auto;
+    }
+    .voting{
+        top: 70%;
     }
     .vote_button {
         width:15vw;
