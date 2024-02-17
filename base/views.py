@@ -104,19 +104,20 @@ def divaRegistration(request, pk):
             context.update(name=request.POST['name'])
             context.update(contact=request.POST['contact'])
             context.update(email=request.POST['email'])
-            Voter.objects.update(diva=candidate)
+            # Voter.objects.update(diva=candidate)
             return render(request, 'base/register.html', context)
 
         if 'verify' in request.POST:
             email = request.POST['email']
-            otp =  request.POST['otp_1']+request.POST['otp_2']+request.POST['otp_3']+request.POST['otp_4']+request.POST['otp_5']+request.POST['otp_6']
+            otp =  int(request.POST['otp_1']+request.POST['otp_2']+request.POST['otp_3']+request.POST['otp_4']+request.POST['otp_5']+request.POST['otp_6'])
 
             find = Voter.objects.filter(email=email)
+            result, find2, timestamp = verifyEmailOTP(email, otp);
             if not find.exists():
                 context.update(message='Email does not match')
                 return render(request, 'base/register.html', context)
             
-            if not verifyEmailOTP(email, otp):
+            if not result:
                 context.update(message='otp expired')
                 context.update(disabled='True')
                 context.update(name='')
@@ -124,7 +125,7 @@ def divaRegistration(request, pk):
                 context.update(email='')
                 return render(request, 'base/register.html', context)
 
-            if find[0].otp != otp:
+            if find2 != otp:
                 context.update(message='wrong otp')
                 context.update(disabled='True')
                 context.update(name=request.POST['name'])
@@ -134,6 +135,7 @@ def divaRegistration(request, pk):
             
             candidate.votes=candidate.votes+1
             candidate.save()
+            Voter.objects.update(diva = candidate, otp = find2, otp_timestamp = timestamp)
             find.update(diva=candidate)
         return redirect('home')
     else:
@@ -161,11 +163,12 @@ def hunkRegistration(request, pk):
             context.update(form=form,message='form is invalid')
             return render(request, 'base/register.html', context)
         context.update(form=form)
+        
         if 'sendOTP' in request.POST:
             voter = form.save(commit=False)
             find = Voter.objects.filter(email=voter.email)
             if (find.count() >= 1):
-                if (find[0].hunk):
+                if (find[0].diva):
                     context.update(message='Only one vote from one email')
                     return render(request, 'base/register.html', context)
             else:
@@ -176,19 +179,19 @@ def hunkRegistration(request, pk):
             context.update(name=request.POST['name'])
             context.update(contact=request.POST['contact'])
             context.update(email=request.POST['email'])
-            Voter.objects.update(hunk=candidate)
             return render(request, 'base/register.html', context)
 
         if 'verify' in request.POST:
             email = request.POST['email']
-            otp =  request.POST['otp_1']+request.POST['otp_2']+request.POST['otp_3']+request.POST['otp_4']+request.POST['otp_5']+request.POST['otp_6']
-            
+            otp =  int(request.POST['otp_1']+request.POST['otp_2']+request.POST['otp_3']+request.POST['otp_4']+request.POST['otp_5']+request.POST['otp_6'])
+
             find = Voter.objects.filter(email=email)
+            result, find2, timestamp = verifyEmailOTP(email, otp);
             if not find.exists():
-                context.update(message='Email dose not match')
+                context.update(message='Email does not match')
                 return render(request, 'base/register.html', context)
             
-            if not verifyEmailOTP(email, otp):
+            if not result:
                 context.update(message='otp expired')
                 context.update(disabled='True')
                 context.update(name='')
@@ -196,23 +199,25 @@ def hunkRegistration(request, pk):
                 context.update(email='')
                 return render(request, 'base/register.html', context)
 
-            if find[0].otp != otp:
+            if find2 != otp:
                 context.update(message='wrong otp')
-                # context.update(message='OTP sent successfully')
                 context.update(disabled='True')
                 context.update(name=request.POST['name'])
                 context.update(contact=request.POST['contact'])
                 context.update(email=request.POST['email'])
                 return render(request, 'base/register.html', context)
             
-            candidate.votes+=1
+            candidate.votes=candidate.votes+1
             candidate.save()
+            Voter.objects.update(hunk = candidate, otp = find2, otp_timestamp = timestamp)
             find.update(hunk=candidate)
         return redirect('home')
     else:
         form = VoterRegisterForm()
     context.update(form=form)
+    context.update(message = 'registered successfully')
     return render(request, 'base/register.html', context)
+
 
 def voting_list(request):
     diva_participants = Diva.objects.order_by('-votes')  # Assuming Diva model has a 'votes' field
