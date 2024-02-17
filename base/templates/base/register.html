@@ -18,7 +18,7 @@
         <img src="{% static 'images/headerShape.png'%}" class="headerShape">
         <div class="register">
             <div class="header1">
-                <div><img src="{% static 'images/alcherLogo.png' %}"></div>
+                <img class="alcher-logo" src="{% static 'images/alcherLogo.png' %}">
                 <div>ALCHERINGA</div>
             </div>
 
@@ -111,7 +111,9 @@
                                     onkeydown="moveToPreviousInput(event, this)">
                             </div>
                         </div>
-                        <button class="submit" name="verify"> SUBMIT MY VOTE </button>
+                        <div class="subt">
+                            <button class="submit" name="verify"> SUBMIT MY VOTE </button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -216,6 +218,7 @@
         }
 
 
+
         // document.getElementById('shareButton').addEventListener('click', function () {
         //     var currentUrl = window.location.href;
 
@@ -233,6 +236,35 @@
 
         //     alert('URL copied to clipboard: ' + currentUrl);
         // });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let currentImageIndex = 0;
+            const images = document.querySelectorAll(".fade-in-out");
+            const overlay = document.querySelector(".overlay");
+
+            function showNextImage() {
+                const currentImage = images[currentImageIndex];
+                currentImage.classList.remove("visible"); // Remove the visible class from the current image
+
+                overlay.classList.add("visible"); // Make the overlay visible
+
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+
+                const nextImage = images[currentImageIndex];
+                nextImage.classList.add("visible"); // Add the visible class to the next image
+
+                setTimeout(() => {
+                    overlay.classList.remove("visible"); // Remove the visible class from the overlay after the transition
+                }, 2000); // Adjust the timing to match the transition duration
+
+                setTimeout(showNextImage, 3000); // Wait for 3 seconds and repeat
+            }
+
+            showNextImage(); // Start the initial transition
+        });
+
     </script>
 
 

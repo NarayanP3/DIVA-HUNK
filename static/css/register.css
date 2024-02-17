@@ -14,24 +14,28 @@ body{
 .container{
     position: relative;
 }
+
 .headerShape{
     z-index:-1; position:absolute;
     width: 35%; height: auto;
+    margin-left: -3vw;
+    margin-top: -7vw;
 }
 .register{
     /* height:fit-content; */
     position: relative;
-    padding:1vh 8vh 17vh 8vh;
+    padding:0.6vw 3vw 8vw 3vw;
     top: -0; 
     left:0%;
     /* z-index: 1; */
 }
 .header1{
     display: flex;
+    align-items: center;
     /* justify-content: flex-start; */
     font-family: 'ConBlack';
     gap:2vw;
-    font-size:2.6vw;
+    font-size:2.2vw;
     font-weight: 800;
     font-family: 'Fontspring-DEMO-freigeist-conblack', sans-serif;
     line-height:3.5vw;
@@ -60,36 +64,51 @@ body{
     font-weight:850;
 }
 
-.registerImages{
-    display:flex;
-    position:relative;
-    /* width: 20vw;
-    height: auto; */
-    /* padding-left: 1vw; */
+.registerImages {
+    position: relative;
 }
-.registerImages img{
-    position:absolute;
+
+.registerImages .imageContainer {
+    position: relative;
 }
-.image1{z-index:2;}
-.imageStar{
-    z-index:3;
-    margin-top:2vw;
-    left:5vw;
-    width: 20vw;
-    height:auto;
-}
-.image2{
-    z-index:1;
-}
-.image3{
-    z-index:0;
-}
-.fade-in-out{
-    opacity:0;
+
+.registerImages img {
+    position: absolute;
+    opacity: 0;
     transition: opacity 2s ease-in-out;
+    width: 33vw;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 33vw;
+    height: 100%;
+    background-color: #222222; 
+    opacity: 0; 
+    transition: opacity 1s ease-in-out;
+    pointer-events: none;
+}
+
+.fade-in-out {
     position: relative;
     width: 33vw;
-    height:auto;
+    height: auto;
+}
+
+.image1 { z-index: 2; }
+.imageStar { z-index: 3; margin-top: 2vw; left: 5vw; width: 20vw; height: auto; }
+.image2 { z-index: 1; }
+.image3 { z-index: 0; }
+
+.fade-in-out.visible {
+    opacity: 1;
+}
+
+.overlay.visible {
+    opacity: 1; /* Make the overlay visible during the transition */
 }
 
 
@@ -273,6 +292,7 @@ select{
     }
 } */
 
+
 @media(max-width:600px){
     .headerShape{
         width: 40vw;
@@ -280,19 +300,21 @@ select{
     }
     .register{
         padding-bottom: 10vw;
+        padding-left: 4vw;
+        padding-right: 4vw;
     }
     .registerPage{
         flex-direction: column;
         margin-left: 0;
-        padding-left: 5vw;
-        padding-right: 5vw;
+        padding-left: 2vw;
+        padding-right: 2vw;
         gap: 0;
         /* padding-bottom: 0; */
         /* left:6vw; */
     }
     .fade-in-out{
-        margin-left: 12vw;
-        width: 35vw;
+        /* margin-left: 18vw; */
+        width: 60vw;
         height:auto;
         /* margin-top: 2vw; */
     }
@@ -302,34 +324,90 @@ select{
         height:auto;
     }
     .registerMain{
-        margin-top:55vw;
+        margin-top:89vw;
         position:relative;
         /* left:2vw; */
         /* gap: 0; */
     }
     .shareProfile{
-        /* height:2vh; */
+        /* height:4vh; */
         /* font-size: 0.7vh; */
-        margin-left: 7vw;
+        font-size: 2.9vw;
+        /* margin-left: 7vw; */
     }
     .formNote{
-        font-size: 0.9vh;
-        width: 55vw;
+        font-size: 3.1vw;
+        width: 87vw;
     }
     .enterName, .phone1, .emailID{
-        width:50%;
+        width:100%;
     }
     .heading2{
-        width: 28vw;
+        width: 42vw;
     }
-    /* .OTPSend{
-        height: 3vh;
-        width:12vw;
-        margin-bottom: 0vh;
+
+   #dropdown{
+    font-size: 3vw;
+   }
+
+   .option{
+    margin-top: 4vw;
+   }
+
+    .overlay{
+        margin-left: 14vw;
+        width: 43vw;
+    }
+
+    .registerImages img{
+        width: 65vw;
+        margin-left: 8vw;
+        margin-top: 2vw;
+    }
+
+    .heading2{
+        font-size: 5vw;
+    }
+    .participant{
+        font-size: 8vw;
+        margin-bottom: 4vw;
+    }
+    .formHead{
+        gap: 15vw;
+    }
+    .input input[type=text],input[type=number], input[type=email]{
+        font-size: 3.7vw;
+        margin-top: 4.9vw;
+    }
+    .subt{
+        /* align-items: center; */
+       margin-left: 26vw;
+    }
+    .OTPSend{
+        margin-top: 4vw;
+        font-size: 3.3vw;
+        /* height: 3vh; */
+        /* width:12vw; */
+        /* margin-bottom: 0vh; */
+    }
+    .OTPHead{
+        font-size: 3.3vw;
     }
 
     .submit{
-        height:3vh;
-        width:20vw;
-    } */
+        font-size: 3.3vw;
+        margin-top: 5vw;
+    } 
+    .header1{
+        font-size: 5vw;
+        align-items: center;
+    }
+    .shareProfile img{
+        width: 2vw;
+        height: auto;
+    }
+    .header1 img{
+        width: 8vw;
+        height: auto;
+    }
 }
