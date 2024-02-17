@@ -22,24 +22,6 @@
                 <div>ALCHERINGA</div>
             </div>
 
-            {% if message == "Only one vote from one email" %}
-            <div class="voteDone" style="display: flex;">
-                You have already voted with these details!
-            </div>
-            {% endif %}
-
-            {% if message == "wrong otp" %}
-            <div class="wrongOTP" style="display: flex;">
-                Wrong OTP!
-            </div>
-            {% endif %}
-
-            {% if message == "otp expired" %}
-            <div class="wrongOTP" style="display: flex;">
-                OTP has expired! Enter your details again.
-            </div>
-            {% endif %}
-
             <div class="registerPage">
                 <div class="registerImages">
                     <!-- <img src="{{ candidate.image.url }}" alt="Description of the image" class="fade-in-out image1"> -->
@@ -94,7 +76,15 @@
                             style="display:none" />
                         {% endif %}
 
-                        <p class="OTPHead"> OTP </p>
+                        {% if message == "Only one vote from one email" %}
+                        <p class="OTPHeadError"> You have already voted with these details! </p>
+                        {% elif message == "wrong otp" %}
+                        <p class="OTPHeadError"> Wrong OTP! </p>
+                        {% elif message == "otp expired" %}
+                        <p class="OTPHeadError"> OTP Expired! </p>
+                        {% endif %}
+                        <p class = "OTPHead">OTP</p>
+                        
                         <div class="OTPCollect">
                             <div id="inputs" class="inputs">
                                 <input class="OTP" type="text" inputmode="numeric" id="otp_1" name="otp_1" maxlength="1"
