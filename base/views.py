@@ -137,11 +137,11 @@ def divaRegistration(request, pk):
             candidate.save()
             Voter.objects.update(diva = candidate, otp = find2, otp_timestamp = timestamp)
             find.update(diva=candidate)
+            context.update(message = 'registered successfully')
         return redirect('home')
     else:
         form = VoterRegisterForm()
     context.update(form=form)
-    context.update(message = 'registered successfully')
     return render(request, 'base/register.html', context)
 
 
@@ -168,7 +168,7 @@ def hunkRegistration(request, pk):
             voter = form.save(commit=False)
             find = Voter.objects.filter(email=voter.email)
             if (find.count() >= 1):
-                if (find[0].diva):
+                if (find[0].hunk):
                     context.update(message='Only one vote from one email')
                     return render(request, 'base/register.html', context)
             else:
@@ -211,11 +211,11 @@ def hunkRegistration(request, pk):
             candidate.save()
             Voter.objects.update(hunk = candidate, otp = find2, otp_timestamp = timestamp)
             find.update(hunk=candidate)
+            context.update(message = 'registered successfully')
         return redirect('home')
     else:
         form = VoterRegisterForm()
     context.update(form=form)
-    context.update(message = 'registered successfully')
     return render(request, 'base/register.html', context)
 
 
