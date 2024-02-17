@@ -1,0 +1,216 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+    <link rel="stylesheet" href="{%static 'css/headerfooter.css'%}">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <title>Voting Page</title>
+</head>
+
+<body>
+    <div class='container'>
+        <img src="{% static 'images/headerShape.png'%}" class="headerShape">
+        <div class="register">
+            <div class="header1">
+                <div><img src="{% static 'images/alcherLogo.png' %}"></div>
+                <div>ALCHERINGA</div>
+            </div>
+
+            <div class="registerPage">
+                <div class="registerImages">
+                    <!-- <img src="{{ candidate.image.url }}" alt="Description of the image" class="fade-in-out image1"> -->
+                    <img src="{%static 'images/image 1.png'%}" class="fade-in-out image1">
+                    <img src="{%static 'images/Stars.png'%}" class="imageStar">
+                    <img src="{%static 'images/image 2.png'%}" class="fade-in-out image2">
+                    <img src="{%static 'images/image 3.png'%}" class="fade-in-out image3">
+                </div>
+                <div class="registerMain">
+                    <div class="formHead">
+                        <p class="heading2">ALCHER {{type}}</p>
+                        <button class="shareProfile" id="shareButton" onclick="shareLink()">
+                            <img src="{%static 'images/shareIcon.png'%}">
+                            <div class="shareContent">SHARE PROFILE</div>
+                        </button>
+                    </div>
+                    <p class="participant">{{ candidate.name }}</p>
+                    <br>
+                    <p class="formNote">Please enter the required information to prevent multiple votes. We will send an
+                        OTP
+                        to <thead>
+                            the entered Email for verification. </p>
+                    <form method="POST" id="otpForm">
+                        {% csrf_token %}
+                        <div class="enterName input">
+                            <input name="name" id="name" type="text" placeholder="Your name" required>
+                        </div>
+                        <div class="phone1">
+                            <div class="option">
+                                <select id="dropdown" name="country_code">
+                                    <option value="+91">+91</option>
+                                    <option value="+880">+880</option>
+                                </select>
+                            </div>
+                            <div class="contactNumber input">
+                                <input name="contact" id="contact" class="phone1" type="number"
+                                    placeholder="Contact No." required>
+                            </div>
+                        </div>
+                        <div class="emailID input">
+                            <input name="email" id="email" type="email" placeholder="Email ID" required>
+                        </div>
+                        <br>
+                        <button class="OTPSend" name="sendOTP" id="OTP_send" onclick="return sendOTP()"> SEND OTP </button>
+
+                        {% if disabled %}
+                        <input type="text" name="name" class="input input2 " value="{{name}}" required
+                            style="display:none" />
+                        <input type="number" name="contact" class="input input2 " value="{{contact}}" required
+                            style="display:none" />
+                        <input type="email" name="email" class="input input2 " value="{{email}}" required
+                            style="display:none" />
+                        {% endif %}
+
+                        {% if message == "Only one vote from one email" %}
+                        <p class="OTPHeadError"> You have already voted with these details! </p>
+                        {% elif message == "wrong otp" %}
+                        <p class="OTPHeadError"> Wrong OTP! </p>
+                        {% elif message == "otp expired" %}
+                        <p class="OTPHeadError"> OTP Expired! </p>
+                        {% endif %}
+                        <p class = "OTPHead">OTP</p>
+
+                        <div class="OTPCollect">
+                            <div id="inputs" class="inputs">
+                                <input class="OTP" type="text" inputmode="numeric" id="otp_1" name="otp_1" maxlength="1"
+                                    oninput="moveToNextInput(this)">
+                                <input class="OTP" type="text" inputmode="numeric" id="otp_2" name="otp_2" maxlength="1"
+                                    oninput="moveToNextInput(this)" onkeydown="moveToPreviousInput(event, this)">
+                                <input class="OTP" type="text" inputmode="numeric" id="otp_3" name="otp_3" maxlength="1"
+                                    oninput="moveToNextInput(this)" onkeydown="moveToPreviousInput(event, this)">
+                                <input class="OTP" type="text" inputmode="numeric" id="otp_4" name="otp_4" maxlength="1"
+                                    oninput="moveToNextInput(this)" onkeydown="moveToPreviousInput(event, this)">
+                                <input class="OTP" type="text" inputmode="numeric" id="otp_5" name="otp_5" maxlength="1"
+                                    oninput="moveToNextInput(this)" onkeydown="moveToPreviousInput(event, this)">
+                                <input class="OTP" type="text" inputmode="numeric" id="otp_6" name="otp_6" maxlength="1"
+                                    onkeydown="moveToPreviousInput(event, this)">
+                            </div>
+                        </div>
+                        <button class="submit" name="verify"> SUBMIT MY VOTE </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include "base/footer.html" %}
+
+    <script>
+        function moveToNextInput(currentInput) {
+            // Move focus to the next input
+            var nextInput = currentInput.nextElementSibling;
+            if (nextInput && currentInput.value !== '') {
+                nextInput.focus();
+            }
+        }
+        function moveToPreviousInput(event, currentInput) {
+            if (event.key === 'ArrowLeft' && currentInput.selectionStart === 0) {
+                var previousInput = currentInput.previousElementSibling;
+                if (previousInput) {
+                    previousInput.focus();
+                }
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let currentImageIndex = 0;
+            const images = document.querySelectorAll(".fade-in-out");
+
+            function showNextImage() {
+                const currentImage = images[currentImageIndex];
+                currentImage.style.opacity = 0; // fade out the current image
+
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+
+                const nextImage = images[currentImageIndex];
+
+                nextImage.style.opacity = 1; // fade in the next image
+
+                setTimeout(showNextImage, 3000); // wait for 3 seconds and repeat
+            }
+
+            showNextImage(); // start the initial transition
+        });
+
+        if ("{{disabled}}" == 'True') {
+            document.getElementById('name').value = "{{name}}";
+            document.getElementById('name').disabled = "true";
+            document.getElementById('contact').value = "{{contact}}";
+            document.getElementById('contact').disabled = "true";
+            document.getElementById('email').value = "{{email}}";
+            document.getElementById('email').disabled = "true";
+            document.getElementById("OTP_send").disabled = "true";
+            document.getElementById("OTP_send").style.cursor = "default";
+            document.getElementsByName('otp_1')[0].required = true;
+            document.getElementsByName('otp_2')[0].required = true;
+            document.getElementsByName('otp_3')[0].required = true;
+            document.getElementsByName('otp_4')[0].required = true;
+            document.getElementsByName('otp_5')[0].required = true;
+            document.getElementsByName('otp_6')[0].required = true;
+            document.getElementsByName('verify')[0].disabled = false;
+            document.getElementsByName('verify')[0].style.cursor = 'pointer';
+        }
+    </script>
+
+    <script>
+        function shareLink() {
+            // Check if the Share API is available
+            if (navigator.share) {
+                navigator.share({
+                    title: 'ALCHER {{ type }}',
+                    text: '{{ candidate.name }}',
+                    url: window.location.href
+                })
+                    .then(() => console.log('Shared successfully'))
+                    .catch((error) => console.error('Error sharing:', error));
+            } else {
+                // Fallback for browsers that do not support the Share API
+                alert('Share API is not supported in this browser.');
+                // You can provide a fallback implementation here
+            }
+        }
+
+        function sendOTP() {
+    // Submit the form directly
+    document.getElementById('otpForm').submit();
+    return false; // Prevent default form submission
+}
+
+        // document.getElementById('shareButton').addEventListener('click', function () {
+        //     var currentUrl = window.location.href;
+
+        //     var tempInput = document.createElement('input');
+        //     tempInput.value = currentUrl;
+
+        //     document.body.appendChild(tempInput);
+
+        //     tempInput.select();
+        //     tempInput.setSelectionRange(0, 99999);
+
+        //     document.execCommand('copy');
+
+        //     document.body.removeChild(tempInput);
+
+        //     alert('URL copied to clipboard: ' + currentUrl);
+        // });
+    </script>
+
+
+</body>
+
+</html>
