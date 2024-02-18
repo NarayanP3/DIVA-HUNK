@@ -1,4 +1,11 @@
-body{
+
+@font-face {
+    font-family: 'sans-serif'; /* Name of the font */
+    src: url('fonts/ConBlack.otf') format('otf'), 
+         url('fonts/Fontspring-DEMO-freigeist-conblack.otf') format('otf'), 
+         url('fonts/TEXAT-BOLD-PERSONAL-USE.otf') format('otf'),
+         url('fonts/Uncut-Sans-VF.ttf') format('ttf');
+}body{
     background-color:#222222;
 }
 
@@ -14,7 +21,7 @@ body{
 .switch_option{
     color: #737373;
     font-size: 4.5vw;
-    font-family: 'FONTSPRING DEMO - Freigeist Con Black', sans-serif;
+    font-family: 'Fontspring-DEMO-freigeist-conblack', sans-serif;
     letter-spacing: -0.2vw;
     font-style: normal;
     font-weight: 770;
