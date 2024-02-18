@@ -98,7 +98,23 @@ body{
 }
 
 .image1 { z-index: 2; }
-.imageStar { z-index: 3; margin-top: 2vw; left: 5vw; width: 20vw; height: auto; }
+.imageStar { 
+    position: absolute;
+    z-index: 3; 
+    margin-top: 2vw; 
+    left: 5vw; 
+    width: 22vw; 
+    height: auto;
+    opacity: 0;
+    animation: fadeInAndOut 1s linear forwards;
+}
+@keyframes fadeInAndOut {
+    0% { opacity: 0; }
+    25% { opacity: 1; }
+    75% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
 .image2 { z-index: 1; }
 .image3 { z-index: 0; }
 
@@ -318,8 +334,9 @@ select{
         /* margin-top: 2vw; */
     }
     .imageStar{
-        left:20vw; margin-top:1vw;
-        width: 24vw;
+        left:20vw; 
+        margin-top:3.5vw;
+        width: 45vw;
         height:auto;
     }
     .registerMain{

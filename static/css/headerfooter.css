@@ -518,7 +518,7 @@ body {
     border:2px solid black;
     margin-left: 10%;
     width: 250px;
-    margin-top: 30vw;
+    margin-top: 9vh;
     height: 55px;
     display: flex;
     flex-direction: row;
@@ -534,7 +534,6 @@ body {
 .vote-button-mobile img{
     transform: rotate(270deg);
 }
-<<<<<<< HEAD
 
 
 /* @media (max-width:1260px){
@@ -543,7 +542,6 @@ body {
         left: 31vw;
     }
 } */
-=======
 .webteam{
     display: none;
     z-index: 3;
@@ -572,4 +570,14 @@ body {
 }
 
 
->>>>>>> 3fa73e028432c66283828350c01e81cb73b5d521
+@media(max-width:1226px){
+    .description, .description-2{
+        font-size: 15px;
+    }
+}
+
+@media(max-width:578px){
+    .vote-button-mobile{
+        margin-top: 12vh;
+    }
+}
