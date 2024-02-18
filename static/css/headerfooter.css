@@ -1,4 +1,10 @@
-
+@font-face {
+    font-family: 'sans-serif'; /* Name of the font */
+    src: url('fonts/ConBlack.otf') format('otf'), 
+         url('fonts/Fontspring-DEMO-freigeist-conblack.otf') format('otf'), 
+         url('fonts/TEXAT-BOLD-PERSONAL-USE.otf') format('otf'),
+         url('fonts/Uncut-Sans-VF.ttf') format('ttf');
+}
 html,
 body {
     margin: 0px;
@@ -39,7 +45,7 @@ body {
 .header{
     background-image: url("/static/images/Group 1.png");
     background-color: white;
-    font-family: 'FONTSPRING DEMO - Freigeist Con Black', sans-serif;
+    font-family: 'Fontspring-DEMO-freigeist-conblack', sans-serif;
     height: 100vh;
     width: 100vw;
     background-size: 118vw 136vh;
@@ -124,6 +130,12 @@ body {
     margin-left: 5%;
     margin-right: 5%;
     
+    
+} 
+.sections h1{
+    font-weight: 800;
+    font-family: 'Fontspring-DEMO-freigeist-conblack', sans-serif;
+
 }
 .heading{
     padding-top: 2vw;;
@@ -273,7 +285,32 @@ body {
 }
 
 
+.webteam{
+    display: none;
+    z-index: 3;
+    margin-top: -20px;;
+    margin-bottom: 10px;;
+    position: absolute;
+    background-color: #48546c;
+    width:14vw;
+    border-radius: 1vw;
+    font-size: 1.12vw;
+    align-items: center;
+    /* display:flex; */
 
+    flex-direction: column;
+    margin-left: 22.5vw;
+    margin-bottom: 3vh;
+    opacity: .9;
+    height: 15vh;
+    justify-content: top;
+    margin-top: -50vw;
+
+}
+.webteam p{
+    margin-bottom: -0.5vw;;
+
+}
 
 @media (max-width:650px){
     .header{
@@ -497,6 +534,7 @@ body {
 .vote-button-mobile img{
     transform: rotate(270deg);
 }
+<<<<<<< HEAD
 
 
 /* @media (max-width:1260px){
@@ -505,3 +543,33 @@ body {
         left: 31vw;
     }
 } */
+=======
+.webteam{
+    display: none;
+    z-index: 3;
+    margin-top: -20px;;
+    margin-bottom: 10px;;
+    position: absolute;
+    background-color: #48546c;
+    width:14vw;
+    border-radius: 1vw;
+    font-size: 1.12vw;
+    align-items: center;
+    /* display:flex; */
+   
+    flex-direction: column;
+    margin-left: 22.5vw;
+    margin-bottom: 3vh;
+    opacity: .9;
+    height: 15vh;
+    justify-content: top;
+    margin-top: -50vw;
+    
+}
+.webteam p{
+    margin-bottom: -0.5vw;;
+   
+}
+
+
+>>>>>>> 3fa73e028432c66283828350c01e81cb73b5d521
