@@ -6,6 +6,8 @@ from itertools import chain
 from django.http import HttpResponse
 from datetime import datetime, timedelta
 import os
+from django.contrib import messages
+
 
 # Create your views here.
 
@@ -137,8 +139,8 @@ def divaRegistration(request, pk):
             candidate.save()
             Voter.objects.update(diva = candidate, otp = find2, otp_timestamp = timestamp)
             find.update(diva=candidate)
-            context.update(message = 'registered successfully')
-        return redirect('home')
+            messages.success(request, f'Thank you for your vote! You have voted for {candidate.name}.')
+            return redirect('home')
     else:
         form = VoterRegisterForm()
     context.update(form=form)
@@ -211,7 +213,7 @@ def hunkRegistration(request, pk):
             candidate.save()
             Voter.objects.update(hunk = candidate, otp = find2, otp_timestamp = timestamp)
             find.update(hunk=candidate)
-            context.update(message = 'registered successfully')
+            messages.success(request, f'Thank you for your vote! You have voted for {candidate.name}.')
         return redirect('home')
     else:
         form = VoterRegisterForm()

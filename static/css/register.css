@@ -6,7 +6,6 @@
          url('fonts/Uncut-Sans-VF.ttf') format('ttf');
 }
 
-
 body{
     background-color: #222222;
 }
@@ -74,7 +73,7 @@ body{
 
 .registerImages img {
     position: absolute;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 2s ease-in-out;
     width: 33vw;
     height: auto;

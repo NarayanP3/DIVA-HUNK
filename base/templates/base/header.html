@@ -18,16 +18,45 @@
 
 <body>
     <div class="header">
-        <div class="header-text">
+        <div class="header-text" id="succme">
+
             <div class="sections">
                 <img class="alcher-logo" src="{%static 'images/alcher-logo.png'%}" style="margin-right: 2vw;" alt="">
-                <h1 >ALCHERINGA</h1>
+                <h1>ALCHERINGA</h1>
             </div>
 
-            {% if message == "registered successfully" %}
-            <div class = "voteSucc" style = "display: flex;">
-                Registered successfully!
+            {% if messages %}
+            <div class="succme">
+                {% for message in messages %}
+                <p class="votemessage"></p>
+                <p class="dhme">- Diva Hunk</p>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        var voteMessage = document.querySelector(".votemessage");
+                        var messageText = "{{ message }}";
+                        var index = 0;
+
+                        function animateText() {
+                            if (index < messageText.length) {
+                                voteMessage.textContent += messageText.charAt(index);
+                                index++;
+                                setTimeout(animateText, 30); // Adjust the time interval as needed
+                            }
+                        }
+
+                        setTimeout(animateText, 50); // Start after 3 seconds
+                    });
+                </script>
+                {% endfor %}
             </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    var succmeDiv = document.querySelector(".succme");
+                    setTimeout(function () {
+                        succmeDiv.style.animation = "fadeout 2s ease forwards";
+                    }, 10000); // Fade out the .succme div after 6 seconds
+                });
+            </script>
             {% endif %}
 
             <h1 class="heading">DIVA HUNK</h1>
@@ -51,9 +80,26 @@
     </div>
     <div class="header-mobile">
 
+        {% if messages %}
+        <div class="succme">
+            {% for message in messages %}
+            <p class="votemessage">{{message}}</p>
+            <p class="dhme">- Diva Hunk</p>
+            {% endfor %}
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var succmeDiv = document.querySelector(".succme");
+                setTimeout(function () {
+                    succmeDiv.style.animation = "fadeout 2s ease forwards";
+                }, 10000); // Fade out the .succme div after 6 seconds
+            });
+        </script>
+        {% endif %}
+
         <div class="alcher-heading">
-            <a href="https://alcheringa.in/"><img class="alcher-logo-mobile" src="{%static 'images/alcher-logo-mobile.png'%}"
-                    style="margin-right: 2vw;" alt=""></a>
+            <a href="https://alcheringa.in/"><img class="alcher-logo-mobile"
+                    src="{%static 'images/alcher-logo-mobile.png'%}" style="margin-right: 2vw;" alt=""></a>
             <h1 style="font-weight:800;color:white;font-size:5vw;">ALCHERINGA</h1>
         </div>
 
@@ -102,10 +148,12 @@
     <script>
         function scrolltovote() {
             var targetDiv = document.getElementById('vote_div');
-            
+
             targetDiv.scrollIntoView({ behavior: 'smooth' });
         }
     </script>
+    
+
 </body>
 
 </html>
