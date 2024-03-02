@@ -45,7 +45,6 @@ body {
 .header{
     background-image: url("/static/images/Group 1.png");
     background-color: white;
-    font-family: 'Fontspring-DEMO-freigeist-conblack', sans-serif;
     height: 100vh;
     width: 100vw;
     background-size: 118vw 136vh;
@@ -147,19 +146,22 @@ body {
     letter-spacing: -0.2vw;
     font-style: normal;
     font-weight: 800;
+    font-family: 'FONTSPRING DEMO - Freigeist Con Black', sans-serif;
 }
 .description{
-    width: 80%;
+    width: 100%;
     margin-left: 5%;
     font-weight: bold;
     margin-bottom: 2vw;
     font-size:20px;
+    font-family: 'Uncut Sans', sans-serif;
 }
 .description-2{
     width: 90%;
     margin-left: 5%;
     font-weight: bolder;
     font-size: 20px;
+    font-family: 'Uncut Sans', sans-serif;
 }
 .image-vote-here{
     margin-left: 5%;
@@ -405,7 +407,6 @@ body {
 
 
 .mobile-footer{
-    background-color: black;
     background-image: url("/static/images/footer-background.png");
     width: 100%;
     height: 100vh;
@@ -508,11 +509,12 @@ body {
     flex-direction: row;
     align-items: center;
     font-weight: 1000;
-    font-size: 25px;
-    justify-content: space-around;
+    font-size: 30px;
+    justify-content: space-evenly;
     border-radius: 15px;
     background-color: #91B6FF;
     cursor: pointer;
+    font-family: 'FONTSPRING DEMO - Freigeist Con Black', sans-serif;
 }
 .vote-button-mobile{
     border:2px solid black;
@@ -529,7 +531,7 @@ body {
     border-radius: 30px;
     background-color: #91B6FF;
     cursor: pointer;
-
+    font-family: 'FONTSPRING DEMO - Freigeist Con Black', sans-serif;
 }
 .vote-button-mobile img{
     transform: rotate(270deg);
