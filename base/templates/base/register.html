@@ -42,11 +42,9 @@
 
             <div class="registerPage">
                 <div class="registerImages">
-                    <!-- <img src="{{ candidate.image.url }}" alt="Description of the image" class="fade-in-out image1"> -->
-                    <img src="{%static 'images/image 1.png'%}" class="fade-in-out image1">
-                    <!-- <img src="{%static 'images/Stars.png'%}" class="imageStar"> -->
-                    <img src="{%static 'images/image 2.png'%}" class="fade-in-out image2">
-                    <img src="{%static 'images/image 3.png'%}" class="fade-in-out image3">
+                    <img src="{{ candidate.image.url }}" class="fade-in-out image1">
+                    <img src="{{ candidate.image1.url }}" class="fade-in-out image2">
+                    <img src="{{ candidate.image2.url }}" class="fade-in-out image3">
                 </div>
                 <img src="{%static 'images/Stars.png'%}" class="imageStar" id="fadeInDiv">
 

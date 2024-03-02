@@ -76,7 +76,8 @@ body{
     opacity: 1;
     transition: opacity 2s ease-in-out;
     width: 33vw;
-    height: auto;
+    height: 44vw;
+    object-fit: cover;
 }
 
 .overlay {
@@ -338,7 +339,7 @@ select{
     }
     .imageStar{
         left:20vw; 
-        margin-top:3.5vw;
+        margin-top:4.5vw;
         width: 45vw;
         height:auto;
     }
@@ -379,9 +380,10 @@ select{
     }
 
     .registerImages img{
-        width: 65vw;
-        margin-left: 8vw;
+        width: 68vw;
+        margin-left: 11vw;
         margin-top: 2vw;
+        height: 89vw;
     }
 
     .heading2{
