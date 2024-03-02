@@ -111,6 +111,10 @@
     border-radius: 30px;
 }
 
+.name_background{
+    background-image: linear-gradient(to bottom right, black, white);
+
+}
 .name_of_participant{
     font-size: 1.5vw;
     font-family: "FONTSPRING DEMO - Freigeist Con Black", sans-serif;
