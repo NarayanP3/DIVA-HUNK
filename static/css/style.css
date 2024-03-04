@@ -147,13 +147,13 @@
     top: 0;
     left: 0.3vw;
     width: 97%;
-    height: 80%; /* Adjust this value to change the height of the black shade */
+    height: 100%; /* Adjust this value to change the height of the black shade */
     /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 50%); Linear gradient from transparent to black with 50% opacity */
     transition: background-color 0.3s ease; /* Smooth transition */
 }
 
 .img_container:hover::before {
-    background-image: linear-gradient(to bottom, black, rgba(8, 8, 8, 0))
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.759), rgba(8, 8, 8, 0))
     /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.825) 20%, rgba(0, 0, 0, 0.810) 0%); Linear gradient with varying opacity */
 }
 
