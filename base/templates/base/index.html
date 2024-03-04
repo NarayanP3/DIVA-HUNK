@@ -17,9 +17,10 @@
                 {% for item in divas %}
                     <div class="img_container">
                         <img src="{{ item.image.url }}" alt="Description of the image" class="img_of_participant">
+                        <p class="participant-name">{{ item.name }}</p>
                         <div class="voting">
                             <div class = "name_background">
-                            <p class="name_of_participant">{{ item.name }}</p>
+                                <p class="name_of_participant">{{ item.name }}</p>
                             </div>
                             <div onclick="window.location.href=`{% url 'diva_register' item.pk  %}`" class="vote_button">
                                 <span class="vote">VOTE</span>
